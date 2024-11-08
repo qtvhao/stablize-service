@@ -7,36 +7,36 @@ import subprocess
 
 @pytest.mark.parametrize("tokens_json, audio_file, output_file, startStampToCompare, cutAudioDuration, segmentsTextToCompare, remainingTokensStartsWith", [
     (
-        "tokens.json",
-        "synthesize-result-2532432836.mp3",
-        "output.json",
+        "tests/tokens.json",
+        "tests/synthesize-result-2532432836.mp3",
+        "tests/output.json",
         61.54,
         183.48,
         "tổ chức hiểu rõ xu hướng và yêu cầu công nghệ hiện đại.",
         "2. Các chứng chỉ nổi bật của CompTIA"
     ),
     (
-        "tokens.json",
-        "synthesize-result-2532432836___61_54_end.mp3",
-        "synthesize-result-2532432836___61_54_end.mp3.json",
+        "tests/tokens.json",
+        "tests/synthesize-result-2532432836___61_54_end.mp3",
+        "tests/synthesize-result-2532432836___61_54_end.mp3.json",
         23.5,
         159.792,
         "và chuẩn bị cho các chứng chỉ cao cấp hơn.",
         "CompTIA A+: Một chứng chỉ căn bản nhưng quan trọng"
     ),
     (
-        "tokens.json",
-        "synthesize-result-2532432836___61_54___23_5_end.mp3",
-        "synthesize-result-2532432836___61_54___23_5_end.mp3.json", 
+        "tests/tokens.json",
+        "tests/synthesize-result-2532432836___61_54___23_5_end.mp3",
+        "tests/synthesize-result-2532432836___61_54___23_5_end.mp3.json", 
         57.32,
         102.288,
         "và triển khai các giải pháp an ninh mạng.",
         "3. Ưu điểm khi sở hữu chứng chỉ CompTIA"
     ),
     (
-        "tokens.json",
-        "synthesize-result-2532432836___61_54___23_5___57_32_end.mp3",
-        "synthesize-result-2532432836___61_54___23_5___57_32_end.mp3.json",
+        "tests/tokens.json",
+        "tests/synthesize-result-2532432836___61_54___23_5___57_32_end.mp3",
+        "tests/synthesize-result-2532432836___61_54___23_5___57_32_end.mp3.json",
         100.98,
         1.128,
         "đồng thời mở rộng cơ hội cho người làm việc trong ngành công nghệ.",
@@ -62,8 +62,8 @@ def test_get_segments_from_segments_file(tokens_json, audio_file, output_file, s
 
 @pytest.mark.parametrize("tokens_json, audio_file", [
     (
-        "tokens.json",
-        "synthesize-result-2532432836.mp3"
+        "tests/tokens.json",
+        "tests/synthesize-result-2532432836.mp3"
     ),
 ])
 def test_recursive_get_segments_from_audio_file(tokens_json, audio_file):
