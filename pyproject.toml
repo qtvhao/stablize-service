@@ -6,7 +6,8 @@ authors = ["qtvhao"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.9,<3.11"
+stable-ts = "2.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
