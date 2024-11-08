@@ -9,6 +9,10 @@ readme = "README.md"
 python = "^3.11"
 
 
+[tool.poetry.group.dev.dependencies]
+pytest-watch = "^4.2.0"
+hypothesis = "^6.118.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
