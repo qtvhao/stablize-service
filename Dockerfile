@@ -1,6 +1,5 @@
 FROM ghcr.io/qtvhao/torch:main
 
-RUN pip install -U stable-ts
 RUN apt-get update && apt-get install -y ffmpeg
 WORKDIR /app/
 
