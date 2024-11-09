@@ -48,8 +48,8 @@ RUN pyenv install ${PYTHON_VERSION} \
     && pyenv global ${PYTHON_VERSION} \
     && pyenv rehash
 
-RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1 \
-    && update-alternatives --install /usr/bin/pip3 pip3 /usr/bin/pip3 1
+RUN update-alternatives --install /usr/bin/python3 python3 /root/.pyenv/versions/${PYTHON_VERSION}/bin/python3.10 1 \
+    && update-alternatives --install /usr/bin/pip3 pip3 /root/.pyenv/versions/${PYTHON_VERSION}/bin/pip3.10 1
 
 RUN curl -sSL https://install.python-poetry.org | python3 -
 COPY pyproject.toml poetry.lock ./
