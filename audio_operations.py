@@ -37,14 +37,14 @@ def get_segments_from_audio_file(audio_file, tokens_texts, output_file='output.j
     # Step 1: Align the tokens with the audio file
     tokens_texts_joined = "\n\n".join(tokens_texts)
     print(f"Aligning {audio_file} with {tokens_texts_joined}")
-    is_pytest = os.environ.get('PYTEST_CURRENT_TEST')
-    if is_pytest:
+    # is_pytest = os.environ.get('PYTEST_CURRENT_TEST')
+    if True:
         # stable-ts audio.mp3 --align text.txt --language en
         tmp_file = '/tmp/align-input-' + str(randint(0, 1000000)) + '.txt'
         open(tmp_file, 'w').write(tokens_texts_joined)
         # Open the process with Popen
         process = subprocess.Popen([
-            "/usr/local/bin/stable-ts", 
+            "stable-ts", 
             audio_file,
             "-y",
             "--align", tmp_file,

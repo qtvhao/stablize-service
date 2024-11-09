@@ -53,10 +53,15 @@ RUN update-alternatives --install /usr/bin/python3 python3 /root/.pyenv/versions
 
 RUN curl -sSL https://install.python-poetry.org | python3 -
 COPY pyproject.toml poetry.lock ./
-RUN /root/.local/bin/poetry install
+ENV PATH="/root/.local/bin:${PATH}"
+RUN poetry config virtualenvs.create false
+RUN poetry install
 
-COPY ./tests/all.txt ./tests/in.wav ./
-RUN stable-ts in.wav --model ${STABLE_TS_MODEL} --language ${STABLE_TS_LANGUAGE} --align all.txt --overwrite --output ni.json
+COPY *.py ./
+COPY ./tests/ ./tests/
+ENV PATH="/root/.pyenv/versions/${PYTHON_VERSION}/bin:${PATH}"
+RUN pytest ./test_audio_operations.py -vv
+# RUN stable-ts in.wav --model ${STABLE_TS_MODEL} --language ${STABLE_TS_LANGUAGE} --align all.txt --overwrite --output ni.json
 # RUN stable-ts in.wav --model ${STABLE_TS_MODEL} --language ${STABLE_TS_LANGUAGE} --align all.txt --overwrite --output ni.json -fw
 
 CMD [ "gunicorn", "-w", "1", "-b", "0.0.0.0:8000", "app:create_app"]
