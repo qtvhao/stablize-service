@@ -7,6 +7,10 @@ request_lock = Lock()
 
 def create_app():
     app = Flask(__name__)
+    
+    @app.route('/')
+    def index():
+        return "Hello, World!"
 
     @app.route('/stablize', methods=['POST'])
     def stablize():
