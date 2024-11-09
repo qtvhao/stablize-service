@@ -1,6 +1,7 @@
 import subprocess
 import json
 import os
+from os.path import basename, dirname
 import stable_whisper
 # from time import sleep
 from alignutils import find_best_segment_match
@@ -42,17 +43,27 @@ def get_segments_from_audio_file(audio_file, tokens_texts, output_file='output.j
         # stable-ts audio.mp3 --align text.txt --language en
         tmp_file = '/tmp/align-input-' + str(randint(0, 1000000)) + '.txt'
         open(tmp_file, 'w').write(tokens_texts_joined)
+        if not os.path.exists(tmp_file):
+            raise ValueError("tmp_file not found")
+        stable_exec = "/usr/local/bin/stable-ts"
+        if not os.path.exists(stable_exec):
+            stable_exec = "/root/.pyenv/versions/3.10.15/bin/stable-ts"
+        if not os.path.exists(stable_exec):
+            raise ValueError("stable-ts not found")
         # Open the process with Popen
-        process = subprocess.Popen([
-            "stable-ts", 
+        args = [
+            stable_exec,
             audio_file,
             "-y",
             "--align", tmp_file,
             "--language", "vi",
             "--output_format", "json",
             "--model", "tiny",
-            "--output", output_file,
-        ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            "--output", basename(output_file),
+            "--output_dir", dirname(output_file)
+        ]
+        print(args)
+        process = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
         # Print outputs in real-time
         print("=== Output ===")
@@ -68,6 +79,9 @@ def get_segments_from_audio_file(audio_file, tokens_texts, output_file='output.j
         # Wait for the process to complete
         process.wait()
 
+        if not os.path.exists(output_file):
+            print("Output file not found")
+            raise ValueError("Alignment failed")
         print("=== Output === ")
         if 1 == process.returncode:
             raise ValueError("Alignment failed")

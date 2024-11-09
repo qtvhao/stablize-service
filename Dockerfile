@@ -56,10 +56,11 @@ COPY pyproject.toml poetry.lock ./
 ENV PATH="/root/.local/bin:${PATH}"
 RUN poetry config virtualenvs.create false
 RUN poetry install
+ENV PATH="/root/.pyenv/versions/${PYTHON_VERSION}/bin:${PATH}"
+RUN pip3 install -U stable-ts
 
 COPY *.py ./
 COPY ./tests/ ./tests/
-ENV PATH="/root/.pyenv/versions/${PYTHON_VERSION}/bin:${PATH}"
 RUN pytest ./test_audio_operations.py -vv
 # RUN stable-ts in.wav --model ${STABLE_TS_MODEL} --language ${STABLE_TS_LANGUAGE} --align all.txt --overwrite --output ni.json
 # RUN stable-ts in.wav --model ${STABLE_TS_MODEL} --language ${STABLE_TS_LANGUAGE} --align all.txt --overwrite --output ni.json -fw
