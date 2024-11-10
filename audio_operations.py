@@ -159,7 +159,7 @@ def get_segments_from_segments_file(audio_file, tokens_texts, output_file='outpu
 
 def convert_audio_file(audio_file):
     output_file = audio_file.replace('.aac', '.mp3')
-    # -acodec libmp3lame
+    output_file = "/tmp/" + basename(output_file)
     process = subprocess.run(["ffmpeg", "-y", "-i", audio_file, "-acodec", "libmp3lame", output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     process.check_returncode()  # Ensure the subprocess completed successfully
     return output_file
