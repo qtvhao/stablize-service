@@ -63,7 +63,7 @@ def test_get_segments_from_segments_file(tokens_json, audio_file, output_file, s
 @pytest.mark.parametrize("tokens_json, audio_file", [
     (
         "tests/tokens.json",
-        "tests/synthesize-result-2532432836.mp3"
+        "tests/synthesize-result.aac"
     ),
 ])
 def test_recursive_get_segments_from_audio_file(tokens_json, audio_file):

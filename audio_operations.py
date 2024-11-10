@@ -109,7 +109,10 @@ def get_segments_from_segments_file(audio_file, tokens_texts, output_file='outpu
         "end": segment['end'],
         "text": segment['text'],
         "words": [{
-            "probability": word['probability'] * 1e8,
+            "word": word['word'],
+            "start": word['start'],
+            "end": word['end'],
+            "probability": round(word['probability'] * 1e8),
         } for word in segment['words']]
     } for segment in segments]
     segments_to_add, segments_end, remaining_tokens, matched_sentences = find_best_segment_match(map_segments, tokens_texts)
@@ -154,7 +157,25 @@ def get_segments_from_segments_file(audio_file, tokens_texts, output_file='outpu
         
     return trimmed_audio_file, remaining_tokens, start, segments_to_add
 
+def convert_audio_file(audio_file):
+    output_file = audio_file.replace('.aac', '.mp3')
+    # -acodec libmp3lame
+    process = subprocess.run(["ffmpeg", "-y", "-i", audio_file, "-acodec", "libmp3lame", output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    process.check_returncode()  # Ensure the subprocess completed successfully
+    return output_file
+
+def get_words(words, start):
+    return [{
+        "word": word['word'],
+        "start": round(word['start'] + start, 2),
+        "end": round(word['end'] + start, 2),
+    } for word in words]
+
 def recursive_get_segments_from_audio_file(audio_file, tokens_texts):
+    if audio_file.endswith('.aac'):
+        audio_file = convert_audio_file(audio_file)
+
+        return recursive_get_segments_from_audio_file(audio_file, tokens_texts)
     if None == tokens_texts:
         return []
     if len(tokens_texts) == 0:
@@ -166,8 +187,9 @@ def recursive_get_segments_from_audio_file(audio_file, tokens_texts):
     remaining_segments = recursive_get_segments_from_audio_file(trimmed_audio_file, remaining_tokens)
     # Step 9: Adjust the start and end times for the remaining segments and combine results
     aligned_segments = [{
-        'start': segment['start'] + start,
-        'end': segment['end'] + start,
+        'start': round(segment['start'] + start, 2),
+        'end': round(segment['end'] + start, 2),
+        'words': get_words(segment['words'], start),
         'text': segment['text']
     } for segment in remaining_segments]
 
