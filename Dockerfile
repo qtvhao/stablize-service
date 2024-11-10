@@ -13,56 +13,25 @@ ENV STABLE_TS_MODEL=tiny
 ENV STABLE_TS_LANGUAGE=vi
 USER root
 
-# Set environment variables
-ENV PYTHON_VERSION=3.10.15
-
-# Update package list and install dependencies
-RUN apt-get update && \
-    apt-get install -y \
-    ffmpeg \
-    curl \
-    git \
-    build-essential \
-    libssl-dev \
-    zlib1g-dev \
-    libbz2-dev \
-    libreadline-dev \
-    libsqlite3-dev \
-    wget \
-    llvm \
-    libncurses5-dev \
-    libncursesw5-dev \
-    xz-utils \
-    tk-dev \
-    libffi-dev \
-    liblzma-dev \
-    python3-openssl \
-    ca-certificates && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN curl https://pyenv.run | bash
-
-RUN apt-get update && apt-get install -y build-essential
-ENV PATH="/root/.pyenv/bin:${PATH}"
-RUN pyenv install ${PYTHON_VERSION} \
-    && pyenv global ${PYTHON_VERSION} \
-    && pyenv rehash
-
-RUN update-alternatives --install /usr/bin/python3 python3 /root/.pyenv/versions/${PYTHON_VERSION}/bin/python3.10 1 \
-    && update-alternatives --install /usr/bin/pip3 pip3 /root/.pyenv/versions/${PYTHON_VERSION}/bin/pip3.10 1
-
 RUN curl -sSL https://install.python-poetry.org | python3 -
 COPY pyproject.toml poetry.lock ./
 ENV PATH="/root/.local/bin:${PATH}"
 RUN poetry config virtualenvs.create false
 RUN poetry install
 ENV PATH="/root/.pyenv/versions/${PYTHON_VERSION}/bin:${PATH}"
-RUN pip3 install -U stable-ts
+ENV PATH="/root/.local/share/pypoetry/venv/bin:${PATH}"
+RUN pip3 install torch==2.5.1 torchaudio==2.5.1 --index-url  https://download.pytorch.org/whl/cpu --no-cache-dir
+RUN pip3 install triton==2.3.1 --no-cache-dir
+RUN pip3 install -U stable-ts --no-cache-dir
+RUN apt update && apt install -y ffmpeg --no-install-recommends && apt clean && rm -rf /var/lib/apt/lists/*
+# RUN pip3 install -U numpy --no-cache-dir
 
-COPY *.py ./
+ENV PATH="/root/.local/bin:${PATH}"
+
+# RUN find / -name stable-ts ; exit 1
 COPY ./tests/ ./tests/
+RUN stable-ts --model tiny --device cpu -y tests/synthesize-result-2532432836.mp3
+COPY *.py ./
 RUN pytest ./test_audio_operations.py -vv
-# RUN stable-ts in.wav --model ${STABLE_TS_MODEL} --language ${STABLE_TS_LANGUAGE} --align all.txt --overwrite --output ni.json
-# RUN stable-ts in.wav --model ${STABLE_TS_MODEL} --language ${STABLE_TS_LANGUAGE} --align all.txt --overwrite --output ni.json -fw
 
 CMD [ "gunicorn", "-w", "1", "-b", "0.0.0.0:8000", "app:create_app"]

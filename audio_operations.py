@@ -2,10 +2,10 @@ import subprocess
 import json
 import os
 from os.path import basename, dirname
-import stable_whisper
+# import stable_whisper
 # from time import sleep
 from alignutils import find_best_segment_match
-model = stable_whisper.load_model(name="tiny", in_memory=True)
+# model = stable_whisper.load_model(name="tiny", in_memory=True)
 
 from random import randint
 def seconds_to_ffmpeg_time(seconds):
@@ -47,7 +47,7 @@ def get_segments_from_audio_file(audio_file, tokens_texts, output_file='output.j
             raise ValueError("tmp_file not found")
         stable_exec = "/usr/local/bin/stable-ts"
         if not os.path.exists(stable_exec):
-            stable_exec = "/root/.pyenv/versions/3.10.15/bin/stable-ts"
+            stable_exec = "/root/.local/share/pypoetry/venv/bin/stable-ts"
         if not os.path.exists(stable_exec):
             raise ValueError("stable-ts not found")
         # Open the process with Popen
@@ -55,6 +55,7 @@ def get_segments_from_audio_file(audio_file, tokens_texts, output_file='output.j
             stable_exec,
             audio_file,
             "-y",
+            "--device", "cpu",
             "--align", tmp_file,
             "--language", "vi",
             "--output_format", "json",
