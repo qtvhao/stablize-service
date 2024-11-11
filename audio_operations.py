@@ -79,6 +79,8 @@ def get_segments_from_audio_file(audio_file, tokens_texts, output_file='output.j
 
         # Wait for the process to complete
         process.wait()
+        returncode = process.returncode
+        print(f"Return code: {returncode}")
 
         if not os.path.exists(output_file):
             print("Output file not found")
@@ -86,9 +88,9 @@ def get_segments_from_audio_file(audio_file, tokens_texts, output_file='output.j
         print("=== Output === ")
         if 1 == process.returncode:
             raise ValueError("Alignment failed")
-    else:
-        alignment_result = model.align(audio_file, tokens_texts_joined, language="vi")
-        alignment_result.save_as_json(output_file)
+    # else:
+    #     alignment_result = model.align(audio_file, tokens_texts_joined, language="vi")
+    #     alignment_result.save_as_json(output_file)
         
     return get_segments_from_segments_file(audio_file, tokens_texts, output_file)
 
