@@ -36,6 +36,13 @@ def get_valid_segments(segments):
                 print(f"Words avg probability: {words_avg_probability} ({segment_text_length})")
                 if words_avg_probability <= tolerance and segment_text_length > 2:
                     print(f"Segment {i}: ({segment['text']}) has low probability ({words_avg_probability})")
+                    valid_segments = segments[:i]
+                    print(f"i: {i}")
+                    if 0 == i:
+                        continue
+                    if valid_segments:
+                        last_valid_segment = valid_segments[-1]
+                        print(f"Last valid segment: {last_valid_segment['text']}")
                     return valid_segments
             else:
                 print(f"Segment {i}: {segment['text']}")

@@ -19,10 +19,10 @@ import subprocess
         "tests/tokens.json",
         "tests/synthesize-result-2532432836___61_54_end.mp3",
         "tests/synthesize-result-2532432836___61_54_end.mp3.json",
-        23.5,
-        159.792,
-        "và chuẩn bị cho các chứng chỉ cao cấp hơn.",
-        "CompTIA A+: Một chứng chỉ căn bản nhưng quan trọng"
+        32.14,
+        151.152,
+        "hỗ trợ kỹ thuật, xử lý sự cố, và bảo trì hệ thống máy tính.",
+        "CompTIA Network+: Tập trung vào kiến thức mạng máy tính"
     ),
     (
         "tests/tokens.json",
@@ -49,6 +49,7 @@ def test_get_segments_from_segments_file(tokens_json, audio_file, output_file, s
     print(f"Trimmed audio file: {trimmed_audio_file}")
     # 
     segments_joined = " ".join([segment['text'].strip() for segment in segments])
+    print(f"Expect segments to end with: {segmentsTextToCompare}")
     assert segments_joined.endswith(segmentsTextToCompare), "Segments don't end with {segmentsTextToCompare}"
     # 
     if remainingTokensStartsWith:
@@ -61,12 +62,12 @@ def test_get_segments_from_segments_file(tokens_json, audio_file, output_file, s
 
 @pytest.mark.parametrize("tokens_json, audio_file", [
     (
-        "tests/tokens.json",
-        "tests/synthesize-result.aac"
-    ),
-    (
         "tests/tokens-2.json",
         "tests/synthesize-result-1456204682.aac"
+    ),
+    (
+        "tests/tokens.json",
+        "tests/synthesize-result.aac"
     ),
 ])
 def test_recursive_get_segments_from_audio_file(tokens_json, audio_file):
