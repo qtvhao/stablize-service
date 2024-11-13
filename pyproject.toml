@@ -10,6 +10,7 @@ package-mode = false
 python = "3.11.2"
 gunicorn = "23.0.0"
 flask = "3.0.3"
+flask-cors = "5.0.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest-watch = "^4.2.0"

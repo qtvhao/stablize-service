@@ -44,8 +44,7 @@ import subprocess
     ),
 ])
 def test_get_segments_from_segments_file(tokens_json, audio_file, output_file, startStampToCompare, cutAudioDuration, segmentsTextToCompare, remainingTokensStartsWith): 
-    tokens = json.loads(open(tokens_json).read())
-    tokens_texts = [token['text'] for token in tokens]
+    tokens_texts = json.loads(open(tokens_json).read())
     trimmed_audio_file, remaining_tokens, start, segments = get_segments_from_segments_file(audio_file, tokens_texts, output_file)
     print(f"Trimmed audio file: {trimmed_audio_file}")
     # 
@@ -65,10 +64,13 @@ def test_get_segments_from_segments_file(tokens_json, audio_file, output_file, s
         "tests/tokens.json",
         "tests/synthesize-result.aac"
     ),
+    (
+        "tests/tokens-2.json",
+        "tests/synthesize-result-1456204682.aac"
+    ),
 ])
 def test_recursive_get_segments_from_audio_file(tokens_json, audio_file):
-    tokens = json.loads(open(tokens_json).read())
-    tokens_texts = [token['text'] for token in tokens]
+    tokens_texts = json.loads(open(tokens_json).read())
     segments = recursive_get_segments_from_audio_file(audio_file, tokens_texts)
     print(segments)
     for segment in segments:
