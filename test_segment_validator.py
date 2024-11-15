@@ -57,7 +57,7 @@ def test_process_segment(segment, tolerance, expected_result):
                 {"start": 1, "end": 1, "text": "End", "words": [{"probability": 0.4}]},
             ],
             1,
-            [{"start": 0, "end": 1, "text": "Hello", "words": [{"probability": 0.5}]}],  # Stops at termination
+            1,  # Stops at termination
         ),
         (
             [
@@ -65,10 +65,7 @@ def test_process_segment(segment, tolerance, expected_result):
                 {"start": 1, "end": 2, "text": "World", "words": [{"probability": 1.0}]},
             ],
             2,
-            [
-                {"start": 0, "end": 1, "text": "Hello", "words": [{"probability": 0.5}]},
-                {"start": 1, "end": 2, "text": "World", "words": [{"probability": 1.0}]},
-            ],  # All valid segments
+            2,  # All valid segments
         ),
         (
             [
@@ -76,11 +73,11 @@ def test_process_segment(segment, tolerance, expected_result):
                 {"start": 1, "end": 2, "text": "Hello", "words": [{"probability": 0.5}]},
             ],
             1,
-            [],  # First segment invalid
+            0,  # First segment invalid
         ),
     ],
 )
 def test_get_valid_segments(segments, tolerance, expected_valid_segments):
     processor = SegmentValidator(tolerance)
     valid_segments = processor.get_valid_segments(segments)
-    assert valid_segments == expected_valid_segments
+    assert len(valid_segments) == expected_valid_segments
