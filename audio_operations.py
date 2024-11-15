@@ -67,7 +67,16 @@ def get_segments_from_audio_file(audio_file, tokens_texts, output_file='output.j
         ]
         print(args)
         SSL_CERT_FILE = os.environ.get('SSL_CERT_FILE')
-        process = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, env={'SSL_CERT_FILE': SSL_CERT_FILE})
+        process = subprocess.Popen(
+            args, 
+            stdout=subprocess.PIPE, 
+            stderr=subprocess.PIPE, 
+            text=True, 
+            env={
+                'SSL_CERT_FILE': SSL_CERT_FILE,
+                'PATH': "/opt/homebrew/bin",
+            },
+        )
 
         # Print outputs in real-time
         print("=== Output ===")
