@@ -104,6 +104,12 @@ def test_get_valid_segments(segments, tolerance, expected_valid_segments):
             3, # 3 valid segments
             " Thành lập vào năm 1982," # Last segment text
         ),
+        (
+            ["./tests/synthesize-result-2532432836-segments.json", 9],
+            .8,
+            20, # 20 valid segments
+            " tập trung vào các kỹ năng hỗ trợ kỹ thuật," # Last segment text
+        ),
     ]
 )
 def test_get_valid_segments(segments_test_suite, tolerance, expected_valid_segments, expected_last_segment_text):
@@ -112,7 +118,7 @@ def test_get_valid_segments(segments_test_suite, tolerance, expected_valid_segme
     segments = processor.load_segments(segments_json)
     segments = segments[start:]
     the_first_segment = segments[0]
-    print(the_first_segment)
+    print(f"The first segment: {the_first_segment['text']}")
     valid_segments = processor.get_valid_segments(segments)
     valid_segments_count = len(valid_segments)
     assert valid_segments_count == expected_valid_segments, f"Expected {expected_valid_segments} valid segments, but got {valid_segments_count}"
