@@ -84,31 +84,35 @@ def test_get_valid_segments(segments, tolerance, expected_valid_segments):
 
 # Tolerance càng cao thì càng nhiều segment được chấp nhận, tối đa 1.0
 @pytest.mark.parametrize(
-    "segments_json, tolerance, expected_valid_segments, expected_last_segment_text",
+    "segments_test_suite, tolerance, expected_valid_segments, expected_last_segment_text",
     [
         (
-            "./tests/synthesize-result-2532432836-segments.json",
+            ["./tests/synthesize-result-2532432836-segments.json", 0],
             .8, # Tolerance
             29, # 8 valid segments
             " tập trung vào các kỹ năng hỗ trợ kỹ thuật," # Last segment text
         ),
         (
-            "./tests/synthesize-result-2532432836-segments.json",
+            ["./tests/synthesize-result-2532432836-segments.json", 0],
             .7,
             6, # 6 valid segments
             " an ninh mạng," # Last segment text
         ),
         (
-            "./tests/synthesize-result-2532432836-segments.json",
+            ["./tests/synthesize-result-2532432836-segments.json", 0],
             .6,
             3, # 3 valid segments
             " Thành lập vào năm 1982," # Last segment text
-        )
+        ),
     ]
 )
-def test_get_valid_segments(segments_json, tolerance, expected_valid_segments, expected_last_segment_text):
+def test_get_valid_segments(segments_test_suite, tolerance, expected_valid_segments, expected_last_segment_text):
     processor = SegmentValidator(tolerance)
+    [segments_json, start] = segments_test_suite
     segments = processor.load_segments(segments_json)
+    segments = segments[start:]
+    the_first_segment = segments[0]
+    print(the_first_segment)
     valid_segments = processor.get_valid_segments(segments)
     valid_segments_count = len(valid_segments)
     assert valid_segments_count == expected_valid_segments, f"Expected {expected_valid_segments} valid segments, but got {valid_segments_count}"
