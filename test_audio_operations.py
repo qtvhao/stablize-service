@@ -10,28 +10,28 @@ import subprocess
         "tests/tokens.json",
         "tests/synthesize-result-2532432836.mp3",
         "tests/output.json",
-        61.54,
-        183.48,
-        "tổ chức hiểu rõ xu hướng và yêu cầu công nghệ hiện đại.",
-        "2. Các chứng chỉ nổi bật của CompTIA"
+        132.92,
+        112.104,
+        "giúp họ hiểu rõ các khái niệm cơ bản về CNTT và chuẩn bị cho các chứng chỉ cao cấp hơn.",
+        "CompTIA IT Fundamentals (ITF+): Dành cho người mới bắt đầu"
     ),
     (
         "tests/tokens.json",
         "tests/synthesize-result-2532432836___61_54_end.mp3",
         "tests/synthesize-result-2532432836___61_54_end.mp3.json",
-        32.14,
-        151.152,
-        "hỗ trợ kỹ thuật, xử lý sự cố, và bảo trì hệ thống máy tính.",
-        "CompTIA Network+: Tập trung vào kiến thức mạng máy tính"
+        58.84,
+        124.464,
+        "Chứng chỉ này tập trung vào phân tích an ninh mạng, phát hiện các mối đe dọa và phòng chống tấn công.",
+        "CompTIA CySA+ (Cybersecurity Analyst):"
     ),
     (
         "tests/tokens.json",
         "tests/synthesize-result-2532432836___61_54___23_5_end.mp3",
         "tests/synthesize-result-2532432836___61_54___23_5_end.mp3.json", 
-        57.32,
-        102.288,
-        "và triển khai các giải pháp an ninh mạng.",
-        "3. Ưu điểm khi sở hữu chứng chỉ CompTIA"
+        105.6,
+        54.0,
+        "được công nhận rộng rãi và đánh giá cao bởi các doanh nghiệp và tổ chức trên thế giới.",
+        "4. Hình thức thi và đánh giá"
     ),
     (
         "tests/tokens.json",
@@ -58,6 +58,7 @@ def test_get_segments_from_segments_file(tokens_json, audio_file, output_file, s
     # 
     trimmed_audio_duration = subprocess.check_output(f"ffprobe -i {trimmed_audio_file} -show_entries format=duration -v quiet -of csv=\"p=0\"", shell=True).decode("utf-8")
     print(f"Trimmed audio duration: {trimmed_audio_duration}")
+    trimmed_audio_duration = trimmed_audio_duration.strip()
     assert float(trimmed_audio_duration) == cutAudioDuration, f"Trimmed audio duration is not {cutAudioDuration}"
 
 @pytest.mark.parametrize("tokens_json, audio_file", [
