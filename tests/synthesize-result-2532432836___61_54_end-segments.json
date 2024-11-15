@@ -1,0 +1,3952 @@
+[
+  {
+    "start": 5.6,
+    "end": 5.7,
+    "text": " 2.",
+    "words": [
+      {
+        "word": " 2.",
+        "start": 5.6,
+        "end": 5.7,
+        "probability": 2e-05
+      }
+    ]
+  },
+  {
+    "start": 5.78,
+    "end": 12.62,
+    "text": " Các chứng chỉ nổi bật của CompTIA  CompTIA cung cấp một loạt chứng chỉ chuyên sâu phù hợp cho từng giai đoạn phát triển trong sự nghiệp CNTT,",
+    "words": [
+      {
+        "word": " Các",
+        "start": 5.78,
+        "end": 5.78,
+        "probability": 0.36219
+      },
+      {
+        "word": " chứng",
+        "start": 5.82,
+        "end": 5.96,
+        "probability": 0.44948
+      },
+      {
+        "word": " chỉ",
+        "start": 5.98,
+        "end": 6.14,
+        "probability": 0.21208
+      },
+      {
+        "word": " nổi",
+        "start": 6.14,
+        "end": 6.32,
+        "probability": 0.40509
+      },
+      {
+        "word": " bật",
+        "start": 6.32,
+        "end": 6.52,
+        "probability": 0.5466
+      },
+      {
+        "word": " của",
+        "start": 6.56,
+        "end": 6.66,
+        "probability": 0.98236
+      },
+      {
+        "word": " CompTIA",
+        "start": 6.66,
+        "end": 7.78,
+        "probability": 0.20838
+      },
+      {
+        "word": "  CompTIA",
+        "start": 8.2,
+        "end": 8.38,
+        "probability": 0.66114
+      },
+      {
+        "word": " cung",
+        "start": 8.6,
+        "end": 8.7,
+        "probability": 0.14393
+      },
+      {
+        "word": " cấp",
+        "start": 8.7,
+        "end": 8.7,
+        "probability": 0.72393
+      },
+      {
+        "word": " một",
+        "start": 8.7,
+        "end": 8.9,
+        "probability": 0.88627
+      },
+      {
+        "word": " loạt",
+        "start": 8.9,
+        "end": 9.12,
+        "probability": 0.03401
+      },
+      {
+        "word": " chứng",
+        "start": 9.14,
+        "end": 9.24,
+        "probability": 0.52724
+      },
+      {
+        "word": " chỉ",
+        "start": 9.24,
+        "end": 9.44,
+        "probability": 0.95045
+      },
+      {
+        "word": " chuyên",
+        "start": 9.46,
+        "end": 9.68,
+        "probability": 0.55755
+      },
+      {
+        "word": " sâu",
+        "start": 9.68,
+        "end": 9.84,
+        "probability": 0.61224
+      },
+      {
+        "word": " phù",
+        "start": 9.92,
+        "end": 10.04,
+        "probability": 0.41873
+      },
+      {
+        "word": " hợp",
+        "start": 10.04,
+        "end": 10.18,
+        "probability": 0.91368
+      },
+      {
+        "word": " cho",
+        "start": 10.2,
+        "end": 10.38,
+        "probability": 0.42475
+      },
+      {
+        "word": " từng",
+        "start": 10.38,
+        "end": 10.62,
+        "probability": 0.59906
+      },
+      {
+        "word": " giai",
+        "start": 10.66,
+        "end": 10.76,
+        "probability": 0.2532
+      },
+      {
+        "word": " đoạn",
+        "start": 10.76,
+        "end": 10.98,
+        "probability": 0.8451
+      },
+      {
+        "word": " phát",
+        "start": 11.14,
+        "end": 11.24,
+        "probability": 0.64786
+      },
+      {
+        "word": " triển",
+        "start": 11.24,
+        "end": 11.54,
+        "probability": 0.88423
+      },
+      {
+        "word": " trong",
+        "start": 11.62,
+        "end": 11.82,
+        "probability": 0.85334
+      },
+      {
+        "word": " sự",
+        "start": 11.86,
+        "end": 11.96,
+        "probability": 0.82446
+      },
+      {
+        "word": " nghiệp",
+        "start": 11.96,
+        "end": 12.14,
+        "probability": 0.89297
+      },
+      {
+        "word": " CNTT,",
+        "start": 12.14,
+        "end": 12.62,
+        "probability": 0.14038
+      }
+    ]
+  },
+  {
+    "start": 13.18,
+    "end": 14.58,
+    "text": " bao gồm từ cơ bản đến nâng cao:",
+    "words": [
+      {
+        "word": " bao",
+        "start": 13.18,
+        "end": 13.32,
+        "probability": 0.83526
+      },
+      {
+        "word": " gồm",
+        "start": 13.32,
+        "end": 13.54,
+        "probability": 0.92705
+      },
+      {
+        "word": " từ",
+        "start": 13.54,
+        "end": 13.76,
+        "probability": 0.93466
+      },
+      {
+        "word": " cơ",
+        "start": 13.78,
+        "end": 14.0,
+        "probability": 0.56443
+      },
+      {
+        "word": " bản",
+        "start": 14.0,
+        "end": 14.06,
+        "probability": 0.7409
+      },
+      {
+        "word": " đến",
+        "start": 14.06,
+        "end": 14.24,
+        "probability": 0.62195
+      },
+      {
+        "word": " nâng",
+        "start": 14.26,
+        "end": 14.36,
+        "probability": 0.50601
+      },
+      {
+        "word": " cao:",
+        "start": 14.36,
+        "end": 14.58,
+        "probability": 0.55378
+      }
+    ]
+  },
+  {
+    "start": 15.4,
+    "end": 18.64,
+    "text": "  CompTIA IT Fundamentals (ITF+): Dành cho người mới bắt đầu,",
+    "words": [
+      {
+        "word": "  CompTIA",
+        "start": 15.4,
+        "end": 15.66,
+        "probability": 0.67998
+      },
+      {
+        "word": " IT",
+        "start": 15.66,
+        "end": 16.06,
+        "probability": 0.80904
+      },
+      {
+        "word": " Fundamentals",
+        "start": 16.08,
+        "end": 16.64,
+        "probability": 0.74594
+      },
+      {
+        "word": " (ITF",
+        "start": 16.66,
+        "end": 17.5,
+        "probability": 0.54073
+      },
+      {
+        "word": "+):",
+        "start": 17.5,
+        "end": 17.84,
+        "probability": 4e-05
+      },
+      {
+        "word": " Dành",
+        "start": 17.84,
+        "end": 17.9,
+        "probability": 0.25513
+      },
+      {
+        "word": " cho",
+        "start": 17.9,
+        "end": 18.0,
+        "probability": 0.05934
+      },
+      {
+        "word": " người",
+        "start": 18.0,
+        "end": 18.14,
+        "probability": 0.94495
+      },
+      {
+        "word": " mới",
+        "start": 18.14,
+        "end": 18.28,
+        "probability": 0.21964
+      },
+      {
+        "word": " bắt",
+        "start": 18.28,
+        "end": 18.48,
+        "probability": 0.74441
+      },
+      {
+        "word": " đầu,",
+        "start": 18.48,
+        "end": 18.64,
+        "probability": 0.98193
+      }
+    ]
+  },
+  {
+    "start": 19.2,
+    "end": 23.5,
+    "text": " giúp họ hiểu rõ các khái niệm cơ bản về CNTT và chuẩn bị cho các chứng chỉ cao cấp hơn.",
+    "words": [
+      {
+        "word": " giúp",
+        "start": 19.2,
+        "end": 19.3,
+        "probability": 0.57349
+      },
+      {
+        "word": " họ",
+        "start": 19.3,
+        "end": 19.46,
+        "probability": 0.92066
+      },
+      {
+        "word": " hiểu",
+        "start": 19.54,
+        "end": 19.64,
+        "probability": 0.42249
+      },
+      {
+        "word": " rõ",
+        "start": 19.64,
+        "end": 19.84,
+        "probability": 0.27339
+      },
+      {
+        "word": " các",
+        "start": 19.84,
+        "end": 19.98,
+        "probability": 0.57622
+      },
+      {
+        "word": " khái",
+        "start": 20.04,
+        "end": 20.2,
+        "probability": 0.16948
+      },
+      {
+        "word": " niệm",
+        "start": 20.2,
+        "end": 20.38,
+        "probability": 0.63892
+      },
+      {
+        "word": " cơ",
+        "start": 20.42,
+        "end": 20.6,
+        "probability": 0.56544
+      },
+      {
+        "word": " bản",
+        "start": 20.6,
+        "end": 20.84,
+        "probability": 0.74329
+      },
+      {
+        "word": " về",
+        "start": 20.84,
+        "end": 21.04,
+        "probability": 0.81775
+      },
+      {
+        "word": " CNTT",
+        "start": 21.1,
+        "end": 21.54,
+        "probability": 0.2236
+      },
+      {
+        "word": " và",
+        "start": 21.54,
+        "end": 21.88,
+        "probability": 0.9212
+      },
+      {
+        "word": " chuẩn",
+        "start": 21.88,
+        "end": 22.06,
+        "probability": 0.60133
+      },
+      {
+        "word": " bị",
+        "start": 22.06,
+        "end": 22.16,
+        "probability": 0.97475
+      },
+      {
+        "word": " cho",
+        "start": 22.24,
+        "end": 22.34,
+        "probability": 0.75545
+      },
+      {
+        "word": " các",
+        "start": 22.34,
+        "end": 22.58,
+        "probability": 0.91397
+      },
+      {
+        "word": " chứng",
+        "start": 22.58,
+        "end": 22.76,
+        "probability": 0.49937
+      },
+      {
+        "word": " chỉ",
+        "start": 22.88,
+        "end": 22.98,
+        "probability": 0.12139
+      },
+      {
+        "word": " cao",
+        "start": 22.98,
+        "end": 23.18,
+        "probability": 0.51855
+      },
+      {
+        "word": " cấp",
+        "start": 23.22,
+        "end": 23.32,
+        "probability": 0.60018
+      },
+      {
+        "word": " hơn.",
+        "start": 23.32,
+        "end": 23.5,
+        "probability": 0.93062
+      }
+    ]
+  },
+  {
+    "start": 23.96,
+    "end": 27.2,
+    "text": "  CompTIA A+: Một chứng chỉ căn bản nhưng quan trọng,",
+    "words": [
+      {
+        "word": "  CompTIA",
+        "start": 23.96,
+        "end": 25.42,
+        "probability": 0.2208
+      },
+      {
+        "word": " A",
+        "start": 25.42,
+        "end": 25.82,
+        "probability": 0.01008
+      },
+      {
+        "word": "+:",
+        "start": 25.82,
+        "end": 25.86,
+        "probability": 2e-05
+      },
+      {
+        "word": " Một",
+        "start": 25.86,
+        "end": 25.88,
+        "probability": 0.52664
+      },
+      {
+        "word": " chứng",
+        "start": 25.9,
+        "end": 26.06,
+        "probability": 0.88189
+      },
+      {
+        "word": " chỉ",
+        "start": 26.16,
+        "end": 26.26,
+        "probability": 0.97424
+      },
+      {
+        "word": " căn",
+        "start": 26.26,
+        "end": 26.46,
+        "probability": 0.47847
+      },
+      {
+        "word": " bản",
+        "start": 26.46,
+        "end": 26.66,
+        "probability": 0.95984
+      },
+      {
+        "word": " nhưng",
+        "start": 26.72,
+        "end": 26.82,
+        "probability": 0.37014
+      },
+      {
+        "word": " quan",
+        "start": 26.82,
+        "end": 27.08,
+        "probability": 0.6252
+      },
+      {
+        "word": " trọng,",
+        "start": 27.08,
+        "end": 27.2,
+        "probability": 0.63302
+      }
+    ]
+  },
+  {
+    "start": 27.72,
+    "end": 29.22,
+    "text": " tập trung vào các kỹ năng hỗ trợ kỹ thuật,",
+    "words": [
+      {
+        "word": " tập",
+        "start": 27.72,
+        "end": 27.76,
+        "probability": 0.91434
+      },
+      {
+        "word": " trung",
+        "start": 27.8,
+        "end": 27.92,
+        "probability": 0.65175
+      },
+      {
+        "word": " vào",
+        "start": 27.92,
+        "end": 28.08,
+        "probability": 0.69471
+      },
+      {
+        "word": " các",
+        "start": 28.08,
+        "end": 28.26,
+        "probability": 0.92798
+      },
+      {
+        "word": " kỹ",
+        "start": 28.26,
+        "end": 28.36,
+        "probability": 0.20694
+      },
+      {
+        "word": " năng",
+        "start": 28.36,
+        "end": 28.52,
+        "probability": 0.87563
+      },
+      {
+        "word": " hỗ",
+        "start": 28.52,
+        "end": 28.78,
+        "probability": 0.83406
+      },
+      {
+        "word": " trợ",
+        "start": 28.78,
+        "end": 28.84,
+        "probability": 0.91378
+      },
+      {
+        "word": " kỹ",
+        "start": 28.84,
+        "end": 29.06,
+        "probability": 0.41174
+      },
+      {
+        "word": " thuật,",
+        "start": 29.06,
+        "end": 29.22,
+        "probability": 0.92465
+      }
+    ]
+  },
+  {
+    "start": 29.74,
+    "end": 30.38,
+    "text": " xử lý sự cố,",
+    "words": [
+      {
+        "word": " xử",
+        "start": 29.74,
+        "end": 29.82,
+        "probability": 0.26145
+      },
+      {
+        "word": " lý",
+        "start": 29.82,
+        "end": 30.04,
+        "probability": 0.28862
+      },
+      {
+        "word": " sự",
+        "start": 30.06,
+        "end": 30.16,
+        "probability": 0.48218
+      },
+      {
+        "word": " cố,",
+        "start": 30.16,
+        "end": 30.38,
+        "probability": 0.53951
+      }
+    ]
+  },
+  {
+    "start": 30.62,
+    "end": 32.14,
+    "text": " và bảo trì hệ thống máy tính.",
+    "words": [
+      {
+        "word": " và",
+        "start": 30.62,
+        "end": 30.74,
+        "probability": 0.85886
+      },
+      {
+        "word": " bảo",
+        "start": 30.74,
+        "end": 30.88,
+        "probability": 0.69618
+      },
+      {
+        "word": " trì",
+        "start": 30.9,
+        "end": 31.0,
+        "probability": 0.02753
+      },
+      {
+        "word": " hệ",
+        "start": 31.0,
+        "end": 31.12,
+        "probability": 0.53059
+      },
+      {
+        "word": " thống",
+        "start": 31.12,
+        "end": 31.28,
+        "probability": 0.54488
+      },
+      {
+        "word": " máy",
+        "start": 31.28,
+        "end": 31.76,
+        "probability": 0.44132
+      },
+      {
+        "word": " tính.",
+        "start": 31.76,
+        "end": 32.14,
+        "probability": 0.58875
+      }
+    ]
+  },
+  {
+    "start": 33.92,
+    "end": 35.2,
+    "text": "  CompTIA Network+:",
+    "words": [
+      {
+        "word": "  CompTIA",
+        "start": 33.92,
+        "end": 34.02,
+        "probability": 0.05202
+      },
+      {
+        "word": " Network",
+        "start": 34.02,
+        "end": 34.36,
+        "probability": 0.29813
+      },
+      {
+        "word": "+:",
+        "start": 34.36,
+        "end": 35.2,
+        "probability": 0.0085
+      }
+    ]
+  },
+  {
+    "start": 35.88,
+    "end": 37.28,
+    "text": " Tập trung vào kiến thức mạng máy tính,",
+    "words": [
+      {
+        "word": " Tập",
+        "start": 35.88,
+        "end": 35.88,
+        "probability": 0.57611
+      },
+      {
+        "word": " trung",
+        "start": 35.9,
+        "end": 36.04,
+        "probability": 0.54227
+      },
+      {
+        "word": " vào",
+        "start": 36.04,
+        "end": 36.22,
+        "probability": 0.88921
+      },
+      {
+        "word": " kiến",
+        "start": 36.22,
+        "end": 36.38,
+        "probability": 0.4939
+      },
+      {
+        "word": " thức",
+        "start": 36.44,
+        "end": 36.54,
+        "probability": 0.65481
+      },
+      {
+        "word": " mạng",
+        "start": 36.54,
+        "end": 36.74,
+        "probability": 0.65731
+      },
+      {
+        "word": " máy",
+        "start": 36.78,
+        "end": 37.0,
+        "probability": 0.51085
+      },
+      {
+        "word": " tính,",
+        "start": 37.0,
+        "end": 37.28,
+        "probability": 0.70953
+      }
+    ]
+  },
+  {
+    "start": 37.62,
+    "end": 38.4,
+    "text": " hướng dẫn cách thiết lập,",
+    "words": [
+      {
+        "word": " hướng",
+        "start": 37.62,
+        "end": 37.7,
+        "probability": 0.74738
+      },
+      {
+        "word": " dẫn",
+        "start": 37.7,
+        "end": 37.86,
+        "probability": 0.88299
+      },
+      {
+        "word": " cách",
+        "start": 37.9,
+        "end": 38.1,
+        "probability": 0.67167
+      },
+      {
+        "word": " thiết",
+        "start": 38.18,
+        "end": 38.28,
+        "probability": 0.49691
+      },
+      {
+        "word": " lập,",
+        "start": 38.28,
+        "end": 38.4,
+        "probability": 0.83147
+      }
+    ]
+  },
+  {
+    "start": 38.84,
+    "end": 40.02,
+    "text": " quản lý và khắc phục sự cố mạng.",
+    "words": [
+      {
+        "word": " quản",
+        "start": 38.84,
+        "end": 38.86,
+        "probability": 0.47772
+      },
+      {
+        "word": " lý",
+        "start": 38.86,
+        "end": 39.06,
+        "probability": 0.66754
+      },
+      {
+        "word": " và",
+        "start": 39.06,
+        "end": 39.26,
+        "probability": 0.70622
+      },
+      {
+        "word": " khắc",
+        "start": 39.26,
+        "end": 39.4,
+        "probability": 0.52261
+      },
+      {
+        "word": " phục",
+        "start": 39.4,
+        "end": 39.56,
+        "probability": 0.83782
+      },
+      {
+        "word": " sự",
+        "start": 39.64,
+        "end": 39.74,
+        "probability": 0.45165
+      },
+      {
+        "word": " cố",
+        "start": 39.74,
+        "end": 39.92,
+        "probability": 0.4706
+      },
+      {
+        "word": " mạng.",
+        "start": 39.92,
+        "end": 40.02,
+        "probability": 0.92199
+      }
+    ]
+  },
+  {
+    "start": 41.68,
+    "end": 44.66,
+    "text": "  CompTIA Security+: Đây là chứng chỉ về an ninh mạng phổ biến,",
+    "words": [
+      {
+        "word": "  CompTIA",
+        "start": 41.68,
+        "end": 41.88,
+        "probability": 0.66549
+      },
+      {
+        "word": " Security",
+        "start": 42.12,
+        "end": 42.46,
+        "probability": 0.74216
+      },
+      {
+        "word": "+:",
+        "start": 42.46,
+        "end": 43.1,
+        "probability": 2e-05
+      },
+      {
+        "word": " Đây",
+        "start": 43.1,
+        "end": 43.1,
+        "probability": 0.33153
+      },
+      {
+        "word": " là",
+        "start": 43.1,
+        "end": 43.2,
+        "probability": 0.98815
+      },
+      {
+        "word": " chứng",
+        "start": 43.2,
+        "end": 43.4,
+        "probability": 0.38803
+      },
+      {
+        "word": " chỉ",
+        "start": 43.44,
+        "end": 43.62,
+        "probability": 0.06117
+      },
+      {
+        "word": " về",
+        "start": 43.62,
+        "end": 43.88,
+        "probability": 0.94066
+      },
+      {
+        "word": " an",
+        "start": 43.88,
+        "end": 44.0,
+        "probability": 0.26526
+      },
+      {
+        "word": " ninh",
+        "start": 44.0,
+        "end": 44.1,
+        "probability": 0.70038
+      },
+      {
+        "word": " mạng",
+        "start": 44.1,
+        "end": 44.34,
+        "probability": 0.9568
+      },
+      {
+        "word": " phổ",
+        "start": 44.42,
+        "end": 44.52,
+        "probability": 0.52089
+      },
+      {
+        "word": " biến,",
+        "start": 44.52,
+        "end": 44.66,
+        "probability": 0.82423
+      }
+    ]
+  },
+  {
+    "start": 45.04,
+    "end": 46.52,
+    "text": " trang bị kiến thức nền tảng về bảo mật mạng,",
+    "words": [
+      {
+        "word": " trang",
+        "start": 45.04,
+        "end": 45.08,
+        "probability": 0.34028
+      },
+      {
+        "word": " bị",
+        "start": 45.08,
+        "end": 45.22,
+        "probability": 0.95319
+      },
+      {
+        "word": " kiến",
+        "start": 45.22,
+        "end": 45.38,
+        "probability": 0.92757
+      },
+      {
+        "word": " thức",
+        "start": 45.44,
+        "end": 45.54,
+        "probability": 0.94284
+      },
+      {
+        "word": " nền",
+        "start": 45.54,
+        "end": 45.72,
+        "probability": 0.71148
+      },
+      {
+        "word": " tảng",
+        "start": 45.82,
+        "end": 45.92,
+        "probability": 0.49684
+      },
+      {
+        "word": " về",
+        "start": 45.94,
+        "end": 46.06,
+        "probability": 0.75436
+      },
+      {
+        "word": " bảo",
+        "start": 46.06,
+        "end": 46.2,
+        "probability": 0.26571
+      },
+      {
+        "word": " mật",
+        "start": 46.24,
+        "end": 46.34,
+        "probability": 0.50033
+      },
+      {
+        "word": " mạng,",
+        "start": 46.34,
+        "end": 46.52,
+        "probability": 0.96437
+      }
+    ]
+  },
+  {
+    "start": 47.14,
+    "end": 47.78,
+    "text": " kiểm soát truy cập,",
+    "words": [
+      {
+        "word": " kiểm",
+        "start": 47.14,
+        "end": 47.24,
+        "probability": 0.27013
+      },
+      {
+        "word": " soát",
+        "start": 47.24,
+        "end": 47.44,
+        "probability": 0.85563
+      },
+      {
+        "word": " truy",
+        "start": 47.58,
+        "end": 47.68,
+        "probability": 0.60405
+      },
+      {
+        "word": " cập,",
+        "start": 47.68,
+        "end": 47.78,
+        "probability": 0.46725
+      }
+    ]
+  },
+  {
+    "start": 48.28,
+    "end": 50.12,
+    "text": " và bảo vệ hệ thống khỏi các mối đe dọa bảo mật.",
+    "words": [
+      {
+        "word": " và",
+        "start": 48.28,
+        "end": 48.3,
+        "probability": 0.7651
+      },
+      {
+        "word": " bảo",
+        "start": 48.3,
+        "end": 48.48,
+        "probability": 0.5872
+      },
+      {
+        "word": " vệ",
+        "start": 48.48,
+        "end": 48.58,
+        "probability": 0.89493
+      },
+      {
+        "word": " hệ",
+        "start": 48.58,
+        "end": 48.8,
+        "probability": 0.58194
+      },
+      {
+        "word": " thống",
+        "start": 48.8,
+        "end": 48.94,
+        "probability": 0.87756
+      },
+      {
+        "word": " khỏi",
+        "start": 49.02,
+        "end": 49.2,
+        "probability": 0.81955
+      },
+      {
+        "word": " các",
+        "start": 49.2,
+        "end": 49.36,
+        "probability": 0.9033
+      },
+      {
+        "word": " mối",
+        "start": 49.36,
+        "end": 49.5,
+        "probability": 0.64492
+      },
+      {
+        "word": " đe",
+        "start": 49.5,
+        "end": 49.62,
+        "probability": 0.617
+      },
+      {
+        "word": " dọa",
+        "start": 49.62,
+        "end": 49.74,
+        "probability": 0.3008
+      },
+      {
+        "word": " bảo",
+        "start": 49.74,
+        "end": 50.02,
+        "probability": 0.41987
+      },
+      {
+        "word": " mật.",
+        "start": 50.02,
+        "end": 50.12,
+        "probability": 0.41991
+      }
+    ]
+  },
+  {
+    "start": 51.28,
+    "end": 52.66,
+    "text": "  CompTIA CySA",
+    "words": [
+      {
+        "word": "  CompTIA",
+        "start": 51.28,
+        "end": 51.5,
+        "probability": 0.01547
+      },
+      {
+        "word": " CySA",
+        "start": 51.5,
+        "end": 52.66,
+        "probability": 3e-05
+      }
+    ]
+  },
+  {
+    "start": 54.22,
+    "end": 56.2,
+    "text": "+ (Cybersecurity Analyst): Chứng chỉ này tập trung vào phân tích an ninh mạng,",
+    "words": [
+      {
+        "word": "+",
+        "start": 54.22,
+        "end": 54.32,
+        "probability": 0.00015
+      },
+      {
+        "word": " (Cybersecurity",
+        "start": 54.32,
+        "end": 54.36,
+        "probability": 0.01828
+      },
+      {
+        "word": " Analyst):",
+        "start": 54.36,
+        "end": 54.36,
+        "probability": 0.00059
+      },
+      {
+        "word": " Chứng",
+        "start": 54.36,
+        "end": 54.36,
+        "probability": 0.04625
+      },
+      {
+        "word": " chỉ",
+        "start": 54.36,
+        "end": 54.5,
+        "probability": 0.04469
+      },
+      {
+        "word": " này",
+        "start": 54.5,
+        "end": 54.68,
+        "probability": 0.74315
+      },
+      {
+        "word": " tập",
+        "start": 54.68,
+        "end": 54.88,
+        "probability": 0.8754
+      },
+      {
+        "word": " trung",
+        "start": 54.9,
+        "end": 55.08,
+        "probability": 0.65419
+      },
+      {
+        "word": " vào",
+        "start": 55.08,
+        "end": 55.3,
+        "probability": 0.81718
+      },
+      {
+        "word": " phân",
+        "start": 55.3,
+        "end": 55.54,
+        "probability": 0.59106
+      },
+      {
+        "word": " tích",
+        "start": 55.54,
+        "end": 55.6,
+        "probability": 0.49901
+      },
+      {
+        "word": " an",
+        "start": 55.64,
+        "end": 55.88,
+        "probability": 0.14534
+      },
+      {
+        "word": " ninh",
+        "start": 55.88,
+        "end": 56.02,
+        "probability": 0.71395
+      },
+      {
+        "word": " mạng,",
+        "start": 56.02,
+        "end": 56.2,
+        "probability": 0.41384
+      }
+    ]
+  },
+  {
+    "start": 56.76,
+    "end": 58.84,
+    "text": " phát hiện các mối đe dọa và phòng chống tấn công.",
+    "words": [
+      {
+        "word": " phát",
+        "start": 56.76,
+        "end": 56.92,
+        "probability": 0.84522
+      },
+      {
+        "word": " hiện",
+        "start": 56.94,
+        "end": 57.1,
+        "probability": 0.90274
+      },
+      {
+        "word": " các",
+        "start": 57.2,
+        "end": 57.3,
+        "probability": 0.99613
+      },
+      {
+        "word": " mối",
+        "start": 57.3,
+        "end": 57.5,
+        "probability": 0.9927
+      },
+      {
+        "word": " đe",
+        "start": 57.5,
+        "end": 57.64,
+        "probability": 0.99351
+      },
+      {
+        "word": " dọa",
+        "start": 57.64,
+        "end": 57.76,
+        "probability": 0.99186
+      },
+      {
+        "word": " và",
+        "start": 57.76,
+        "end": 58.06,
+        "probability": 0.55451
+      },
+      {
+        "word": " phòng",
+        "start": 58.16,
+        "end": 58.26,
+        "probability": 0.86883
+      },
+      {
+        "word": " chống",
+        "start": 58.32,
+        "end": 58.42,
+        "probability": 0.62282
+      },
+      {
+        "word": " tấn",
+        "start": 58.56,
+        "end": 58.66,
+        "probability": 0.39895
+      },
+      {
+        "word": " công.",
+        "start": 58.66,
+        "end": 58.84,
+        "probability": 0.94088
+      }
+    ]
+  },
+  {
+    "start": 75.04,
+    "end": 76.82,
+    "text": "  CompTIA PenTest",
+    "words": [
+      {
+        "word": "  CompTIA",
+        "start": 75.04,
+        "end": 75.52,
+        "probability": 0.66088
+      },
+      {
+        "word": " PenTest",
+        "start": 75.66,
+        "end": 76.82,
+        "probability": 0.33313
+      }
+    ]
+  },
+  {
+    "start": 88.94,
+    "end": 88.94,
+    "text": "+: Dành",
+    "words": [
+      {
+        "word": "+:",
+        "start": 88.94,
+        "end": 88.94,
+        "probability": 9e-05
+      },
+      {
+        "word": " Dành",
+        "start": 88.94,
+        "end": 88.94,
+        "probability": 0.0101
+      }
+    ]
+  },
+  {
+    "start": 97.46,
+    "end": 97.46,
+    "text": " cho những người làm trong lĩnh vực kiểm thử xâm nhập,",
+    "words": [
+      {
+        "word": " cho",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.0571
+      },
+      {
+        "word": " những",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.01388
+      },
+      {
+        "word": " người",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.0789
+      },
+      {
+        "word": " làm",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.00303
+      },
+      {
+        "word": " trong",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.0004
+      },
+      {
+        "word": " lĩnh",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.31076
+      },
+      {
+        "word": " vực",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.01737
+      },
+      {
+        "word": " kiểm",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.02021
+      },
+      {
+        "word": " thử",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.02031
+      },
+      {
+        "word": " xâm",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.00256
+      },
+      {
+        "word": " nhập,",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.03054
+      }
+    ]
+  },
+  {
+    "start": 97.46,
+    "end": 97.98,
+    "text": " cung cấp kiến thức về các kỹ thuật tấn công và khai thác điểm yếu hệ thống.",
+    "words": [
+      {
+        "word": " cung",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.00258
+      },
+      {
+        "word": " cấp",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.03886
+      },
+      {
+        "word": " kiến",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.00185
+      },
+      {
+        "word": " thức",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.07916
+      },
+      {
+        "word": " về",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.00042
+      },
+      {
+        "word": " các",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.00881
+      },
+      {
+        "word": " kỹ",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.01591
+      },
+      {
+        "word": " thuật",
+        "start": 97.46,
+        "end": 97.46,
+        "probability": 0.18216
+      },
+      {
+        "word": " tấn",
+        "start": 97.46,
+        "end": 97.6,
+        "probability": 0.01402
+      },
+      {
+        "word": " công",
+        "start": 97.6,
+        "end": 97.6,
+        "probability": 0.04145
+      },
+      {
+        "word": " và",
+        "start": 97.6,
+        "end": 97.6,
+        "probability": 0.00719
+      },
+      {
+        "word": " khai",
+        "start": 97.6,
+        "end": 97.6,
+        "probability": 0.05459
+      },
+      {
+        "word": " thác",
+        "start": 97.6,
+        "end": 97.6,
+        "probability": 0.03523
+      },
+      {
+        "word": " điểm",
+        "start": 97.6,
+        "end": 97.6,
+        "probability": 0.12013
+      },
+      {
+        "word": " yếu",
+        "start": 97.6,
+        "end": 97.98,
+        "probability": 0.09414
+      },
+      {
+        "word": " hệ",
+        "start": 97.98,
+        "end": 97.98,
+        "probability": 0.01557
+      },
+      {
+        "word": " thống.",
+        "start": 97.98,
+        "end": 97.98,
+        "probability": 0.03937
+      }
+    ]
+  },
+  {
+    "start": 97.98,
+    "end": 102.38,
+    "text": "  CompTIA Advanced Security Practitioner (CASP",
+    "words": [
+      {
+        "word": "  CompTIA",
+        "start": 97.98,
+        "end": 99.78,
+        "probability": 0.07073
+      },
+      {
+        "word": " Advanced",
+        "start": 100.12,
+        "end": 100.46,
+        "probability": 0.0
+      },
+      {
+        "word": " Security",
+        "start": 100.46,
+        "end": 101.4,
+        "probability": 0.00019
+      },
+      {
+        "word": " Practitioner",
+        "start": 101.42,
+        "end": 102.06,
+        "probability": 0.29659
+      },
+      {
+        "word": " (CASP",
+        "start": 102.06,
+        "end": 102.38,
+        "probability": 0.03872
+      }
+    ]
+  },
+  {
+    "start": 105.22,
+    "end": 107.04,
+    "text": "+):",
+    "words": [
+      {
+        "word": "+):",
+        "start": 105.22,
+        "end": 107.04,
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "start": 110.84,
+    "end": 115.1,
+    "text": " Đây là chứng chỉ cao cấp nhất trong",
+    "words": [
+      {
+        "word": " Đây",
+        "start": 110.84,
+        "end": 112.7,
+        "probability": 0.00046
+      },
+      {
+        "word": " là",
+        "start": 112.7,
+        "end": 112.7,
+        "probability": 0.47586
+      },
+      {
+        "word": " chứng",
+        "start": 112.7,
+        "end": 112.7,
+        "probability": 0.00556
+      },
+      {
+        "word": " chỉ",
+        "start": 112.7,
+        "end": 112.8,
+        "probability": 0.00048
+      },
+      {
+        "word": " cao",
+        "start": 112.8,
+        "end": 113.18,
+        "probability": 0.49243
+      },
+      {
+        "word": " cấp",
+        "start": 113.18,
+        "end": 113.24,
+        "probability": 0.00336
+      },
+      {
+        "word": " nhất",
+        "start": 113.28,
+        "end": 114.8,
+        "probability": 0.001
+      },
+      {
+        "word": " trong",
+        "start": 114.8,
+        "end": 115.1,
+        "probability": 0.03437
+      }
+    ]
+  },
+  {
+    "start": 126.52,
+    "end": 128.64,
+    "text": " lĩnh vực an ninh mạng của CompTIA,",
+    "words": [
+      {
+        "word": " lĩnh",
+        "start": 126.52,
+        "end": 126.52,
+        "probability": 0.26176
+      },
+      {
+        "word": " vực",
+        "start": 126.52,
+        "end": 126.52,
+        "probability": 0.03497
+      },
+      {
+        "word": " an",
+        "start": 126.52,
+        "end": 126.52,
+        "probability": 0.00038
+      },
+      {
+        "word": " ninh",
+        "start": 126.52,
+        "end": 126.52,
+        "probability": 0.39986
+      },
+      {
+        "word": " mạng",
+        "start": 126.52,
+        "end": 126.52,
+        "probability": 0.24276
+      },
+      {
+        "word": " của",
+        "start": 126.52,
+        "end": 126.52,
+        "probability": 0.03421
+      },
+      {
+        "word": " CompTIA,",
+        "start": 126.52,
+        "end": 128.64,
+        "probability": 0.09719
+      }
+    ]
+  },
+  {
+    "start": 129.2,
+    "end": 131.18,
+    "text": " tập trung vào việc thiết kế và triển khai các giải pháp an ninh mạng.",
+    "words": [
+      {
+        "word": " tập",
+        "start": 129.2,
+        "end": 129.64,
+        "probability": 0.01197
+      },
+      {
+        "word": " trung",
+        "start": 129.64,
+        "end": 129.64,
+        "probability": 0.04913
+      },
+      {
+        "word": " vào",
+        "start": 129.64,
+        "end": 129.64,
+        "probability": 0.00203
+      },
+      {
+        "word": " việc",
+        "start": 129.98,
+        "end": 130.16,
+        "probability": 0.00191
+      },
+      {
+        "word": " thiết",
+        "start": 130.16,
+        "end": 130.16,
+        "probability": 0.07725
+      },
+      {
+        "word": " kế",
+        "start": 130.16,
+        "end": 130.16,
+        "probability": 0.03432
+      },
+      {
+        "word": " và",
+        "start": 130.16,
+        "end": 130.16,
+        "probability": 0.00167
+      },
+      {
+        "word": " triển",
+        "start": 130.16,
+        "end": 130.16,
+        "probability": 0.19287
+      },
+      {
+        "word": " khai",
+        "start": 130.16,
+        "end": 130.16,
+        "probability": 0.04499
+      },
+      {
+        "word": " các",
+        "start": 130.16,
+        "end": 131.18,
+        "probability": 0.00187
+      },
+      {
+        "word": " giải",
+        "start": 131.18,
+        "end": 131.18,
+        "probability": 0.02467
+      },
+      {
+        "word": " pháp",
+        "start": 131.18,
+        "end": 131.18,
+        "probability": 0.02045
+      },
+      {
+        "word": " an",
+        "start": 131.18,
+        "end": 131.18,
+        "probability": 0.00262
+      },
+      {
+        "word": " ninh",
+        "start": 131.18,
+        "end": 131.18,
+        "probability": 0.82459
+      },
+      {
+        "word": " mạng.",
+        "start": 131.18,
+        "end": 131.18,
+        "probability": 0.54845
+      }
+    ]
+  },
+  {
+    "start": 131.18,
+    "end": 131.18,
+    "text": "  3.",
+    "words": [
+      {
+        "word": "  3.",
+        "start": 131.18,
+        "end": 131.18,
+        "probability": 0.00507
+      }
+    ]
+  },
+  {
+    "start": 136.96,
+    "end": 141.7,
+    "text": " Ưu điểm khi sở hữu chứng chỉ CompTIA  Được công nhận toàn",
+    "words": [
+      {
+        "word": " Ưu",
+        "start": 136.96,
+        "end": 139.58,
+        "probability": 0.16373
+      },
+      {
+        "word": " điểm",
+        "start": 139.58,
+        "end": 139.58,
+        "probability": 0.01689
+      },
+      {
+        "word": " khi",
+        "start": 139.58,
+        "end": 139.58,
+        "probability": 0.00052
+      },
+      {
+        "word": " sở",
+        "start": 139.58,
+        "end": 139.58,
+        "probability": 0.00217
+      },
+      {
+        "word": " hữu",
+        "start": 139.58,
+        "end": 139.58,
+        "probability": 0.33919
+      },
+      {
+        "word": " chứng",
+        "start": 139.58,
+        "end": 139.58,
+        "probability": 0.0118
+      },
+      {
+        "word": " chỉ",
+        "start": 139.58,
+        "end": 139.58,
+        "probability": 0.00019
+      },
+      {
+        "word": " CompTIA",
+        "start": 139.58,
+        "end": 140.26,
+        "probability": 0.01878
+      },
+      {
+        "word": "  Được",
+        "start": 140.26,
+        "end": 140.36,
+        "probability": 0.01172
+      },
+      {
+        "word": " công",
+        "start": 140.36,
+        "end": 141.02,
+        "probability": 0.06453
+      },
+      {
+        "word": " nhận",
+        "start": 141.08,
+        "end": 141.2,
+        "probability": 0.03503
+      },
+      {
+        "word": " toàn",
+        "start": 141.2,
+        "end": 141.7,
+        "probability": 0.32389
+      }
+    ]
+  },
+  {
+    "start": 152.8,
+    "end": 161.14,
+    "text": " cầu: Chứng chỉ của CompTIA được công nhận rộng rãi và đánh giá cao bởi các doanh nghiệp và tổ chức trên thế giới.",
+    "words": [
+      {
+        "word": " cầu:",
+        "start": 152.8,
+        "end": 153.92,
+        "probability": 0.00659
+      },
+      {
+        "word": " Chứng",
+        "start": 154.36,
+        "end": 155.7,
+        "probability": 0.00597
+      },
+      {
+        "word": " chỉ",
+        "start": 155.8,
+        "end": 155.92,
+        "probability": 0.00053
+      },
+      {
+        "word": " của",
+        "start": 155.92,
+        "end": 156.1,
+        "probability": 0.16299
+      },
+      {
+        "word": " CompTIA",
+        "start": 156.44,
+        "end": 157.2,
+        "probability": 0.09994
+      },
+      {
+        "word": " được",
+        "start": 157.22,
+        "end": 157.8,
+        "probability": 2e-05
+      },
+      {
+        "word": " công",
+        "start": 157.8,
+        "end": 157.82,
+        "probability": 0.00745
+      },
+      {
+        "word": " nhận",
+        "start": 157.82,
+        "end": 157.82,
+        "probability": 0.18961
+      },
+      {
+        "word": " rộng",
+        "start": 157.82,
+        "end": 158.6,
+        "probability": 0.27792
+      },
+      {
+        "word": " rãi",
+        "start": 158.66,
+        "end": 159.06,
+        "probability": 0.02915
+      },
+      {
+        "word": " và",
+        "start": 159.32,
+        "end": 159.42,
+        "probability": 0.03817
+      },
+      {
+        "word": " đánh",
+        "start": 159.42,
+        "end": 160.0,
+        "probability": 0.00035
+      },
+      {
+        "word": " giá",
+        "start": 160.0,
+        "end": 160.2,
+        "probability": 0.01015
+      },
+      {
+        "word": " cao",
+        "start": 160.2,
+        "end": 160.2,
+        "probability": 0.48206
+      },
+      {
+        "word": " bởi",
+        "start": 160.2,
+        "end": 160.2,
+        "probability": 0.32824
+      },
+      {
+        "word": " các",
+        "start": 160.2,
+        "end": 160.2,
+        "probability": 0.00625
+      },
+      {
+        "word": " doanh",
+        "start": 160.2,
+        "end": 160.2,
+        "probability": 0.06037
+      },
+      {
+        "word": " nghiệp",
+        "start": 160.2,
+        "end": 160.2,
+        "probability": 0.5412
+      },
+      {
+        "word": " và",
+        "start": 160.2,
+        "end": 160.84,
+        "probability": 0.0053
+      },
+      {
+        "word": " tổ",
+        "start": 160.84,
+        "end": 160.92,
+        "probability": 0.03457
+      },
+      {
+        "word": " chức",
+        "start": 160.92,
+        "end": 160.92,
+        "probability": 0.05434
+      },
+      {
+        "word": " trên",
+        "start": 160.92,
+        "end": 160.92,
+        "probability": 0.00075
+      },
+      {
+        "word": " thế",
+        "start": 160.94,
+        "end": 161.04,
+        "probability": 0.00291
+      },
+      {
+        "word": " giới.",
+        "start": 161.04,
+        "end": 161.14,
+        "probability": 0.17243
+      }
+    ]
+  },
+  {
+    "start": 161.16,
+    "end": 161.16,
+    "text": "  Không lệ thuộc nhà cung cấp (Vendor",
+    "words": [
+      {
+        "word": "  Không",
+        "start": 161.16,
+        "end": 161.16,
+        "probability": 0.00166
+      },
+      {
+        "word": " lệ",
+        "start": 161.16,
+        "end": 161.16,
+        "probability": 0.01406
+      },
+      {
+        "word": " thuộc",
+        "start": 161.16,
+        "end": 161.16,
+        "probability": 0.03273
+      },
+      {
+        "word": " nhà",
+        "start": 161.16,
+        "end": 161.16,
+        "probability": 0.0033
+      },
+      {
+        "word": " cung",
+        "start": 161.16,
+        "end": 161.16,
+        "probability": 0.00294
+      },
+      {
+        "word": " cấp",
+        "start": 161.16,
+        "end": 161.16,
+        "probability": 0.02429
+      },
+      {
+        "word": " (Vendor",
+        "start": 161.16,
+        "end": 161.16,
+        "probability": 0.07183
+      }
+    ]
+  },
+  {
+    "start": 162.5,
+    "end": 163.94,
+    "text": "-neutral):",
+    "words": [
+      {
+        "word": "-neutral):",
+        "start": 162.5,
+        "end": 163.94,
+        "probability": 0.0014
+      }
+    ]
+  },
+  {
+    "start": 166.08,
+    "end": 168.18,
+    "text": " CompTIA tập trung",
+    "words": [
+      {
+        "word": " CompTIA",
+        "start": 166.08,
+        "end": 167.7,
+        "probability": 0.20496
+      },
+      {
+        "word": " tập",
+        "start": 167.7,
+        "end": 168.18,
+        "probability": 0.00075
+      },
+      {
+        "word": " trung",
+        "start": 168.18,
+        "end": 168.18,
+        "probability": 0.16239
+      }
+    ]
+  },
+  {
+    "start": 168.9,
+    "end": 172.18,
+    "text": " vào các khái niệm và kỹ năng cốt lõi,",
+    "words": [
+      {
+        "word": " vào",
+        "start": 168.9,
+        "end": 169.0,
+        "probability": 0.00017
+      },
+      {
+        "word": " các",
+        "start": 169.0,
+        "end": 170.26,
+        "probability": 0.00265
+      },
+      {
+        "word": " khái",
+        "start": 170.26,
+        "end": 170.26,
+        "probability": 0.00671
+      },
+      {
+        "word": " niệm",
+        "start": 170.26,
+        "end": 170.26,
+        "probability": 0.48109
+      },
+      {
+        "word": " và",
+        "start": 170.26,
+        "end": 170.26,
+        "probability": 0.01746
+      },
+      {
+        "word": " kỹ",
+        "start": 170.76,
+        "end": 171.96,
+        "probability": 0.01139
+      },
+      {
+        "word": " năng",
+        "start": 171.96,
+        "end": 171.96,
+        "probability": 0.02949
+      },
+      {
+        "word": " cốt",
+        "start": 171.96,
+        "end": 171.96,
+        "probability": 0.01506
+      },
+      {
+        "word": " lõi,",
+        "start": 171.96,
+        "end": 172.18,
+        "probability": 0.1635
+      }
+    ]
+  },
+  {
+    "start": 172.4,
+    "end": 173.4,
+    "text": " không phụ thuộc vào bất kỳ công nghệ hoặc nhà cung cấp cụ thể nào,",
+    "words": [
+      {
+        "word": " không",
+        "start": 172.4,
+        "end": 172.4,
+        "probability": 0.00268
+      },
+      {
+        "word": " phụ",
+        "start": 172.4,
+        "end": 172.4,
+        "probability": 0.00981
+      },
+      {
+        "word": " thuộc",
+        "start": 172.4,
+        "end": 172.4,
+        "probability": 0.04073
+      },
+      {
+        "word": " vào",
+        "start": 172.4,
+        "end": 172.4,
+        "probability": 0.00385
+      },
+      {
+        "word": " bất",
+        "start": 172.4,
+        "end": 172.4,
+        "probability": 0.01817
+      },
+      {
+        "word": " kỳ",
+        "start": 172.4,
+        "end": 172.4,
+        "probability": 0.3014
+      },
+      {
+        "word": " công",
+        "start": 172.4,
+        "end": 172.4,
+        "probability": 0.00154
+      },
+      {
+        "word": " nghệ",
+        "start": 172.4,
+        "end": 172.64,
+        "probability": 0.22956
+      },
+      {
+        "word": " hoặc",
+        "start": 172.64,
+        "end": 172.64,
+        "probability": 0.02175
+      },
+      {
+        "word": " nhà",
+        "start": 172.64,
+        "end": 172.64,
+        "probability": 0.00201
+      },
+      {
+        "word": " cung",
+        "start": 172.64,
+        "end": 172.64,
+        "probability": 0.0042
+      },
+      {
+        "word": " cấp",
+        "start": 172.64,
+        "end": 172.64,
+        "probability": 0.02996
+      },
+      {
+        "word": " cụ",
+        "start": 172.64,
+        "end": 172.78,
+        "probability": 0.01661
+      },
+      {
+        "word": " thể",
+        "start": 172.78,
+        "end": 172.78,
+        "probability": 0.0025
+      },
+      {
+        "word": " nào,",
+        "start": 172.78,
+        "end": 173.4,
+        "probability": 0.03517
+      }
+    ]
+  },
+  {
+    "start": 173.4,
+    "end": 173.4,
+    "text": " giúp người học linh hoạt trong nhiều môi trường làm việc khác nhau.",
+    "words": [
+      {
+        "word": " giúp",
+        "start": 173.4,
+        "end": 173.4,
+        "probability": 0.3591
+      },
+      {
+        "word": " người",
+        "start": 173.4,
+        "end": 173.4,
+        "probability": 0.00293
+      },
+      {
+        "word": " học",
+        "start": 173.4,
+        "end": 173.4,
+        "probability": 0.00057
+      },
+      {
+        "word": " linh",
+        "start": 173.4,
+        "end": 173.4,
+        "probability": 0.00196
+      },
+      {
+        "word": " hoạt",
+        "start": 173.4,
+        "end": 173.4,
+        "probability": 0.01266
+      },
+      {
+        "word": " trong",
+        "start": 173.4,
+        "end": 173.4,
+        "probability": 0.00086
+      },
+      {
+        "word": " nhiều",
+        "start": 173.4,
+        "end": 173.4,
+        "probability": 0.00435
+      },
+      {
+        "word": " môi",
+        "start": 173.4,
+        "end": 173.4,
+        "probability": 0.02009
+      },
+      {
+        "word": " trường",
+        "start": 173.4,
+        "end": 173.4,
+        "probability": 0.13732
+      },
+      {
+        "word": " làm",
+        "start": 173.4,
+        "end": 173.4,
+        "probability": 0.00174
+      },
+      {
+        "word": " việc",
+        "start": 173.4,
+        "end": 173.4,
+        "probability": 0.77801
+      },
+      {
+        "word": " khác",
+        "start": 173.4,
+        "end": 173.4,
+        "probability": 1e-05
+      },
+      {
+        "word": " nhau.",
+        "start": 173.4,
+        "end": 173.4,
+        "probability": 0.13029
+      }
+    ]
+  },
+  {
+    "start": 174.84,
+    "end": 178.68,
+    "text": "  Cơ hội nghề nghiệp tốt hơn: Việc sở hữu các chứng chỉ của CompTIA có thể giúp các chuyên gia CNTT tăng cường kỹ năng,",
+    "words": [
+      {
+        "word": "  Cơ",
+        "start": 174.84,
+        "end": 175.16,
+        "probability": 0.00201
+      },
+      {
+        "word": " hội",
+        "start": 175.16,
+        "end": 175.16,
+        "probability": 0.1655
+      },
+      {
+        "word": " nghề",
+        "start": 175.16,
+        "end": 175.16,
+        "probability": 0.00815
+      },
+      {
+        "word": " nghiệp",
+        "start": 175.16,
+        "end": 175.16,
+        "probability": 0.46594
+      },
+      {
+        "word": " tốt",
+        "start": 175.16,
+        "end": 175.16,
+        "probability": 0.02392
+      },
+      {
+        "word": " hơn:",
+        "start": 175.16,
+        "end": 175.16,
+        "probability": 0.01649
+      },
+      {
+        "word": " Việc",
+        "start": 175.16,
+        "end": 175.16,
+        "probability": 0.29748
+      },
+      {
+        "word": " sở",
+        "start": 175.16,
+        "end": 175.16,
+        "probability": 0.01426
+      },
+      {
+        "word": " hữu",
+        "start": 175.16,
+        "end": 175.16,
+        "probability": 0.33421
+      },
+      {
+        "word": " các",
+        "start": 175.16,
+        "end": 175.16,
+        "probability": 0.00124
+      },
+      {
+        "word": " chứng",
+        "start": 175.16,
+        "end": 175.16,
+        "probability": 0.00675
+      },
+      {
+        "word": " chỉ",
+        "start": 175.18,
+        "end": 175.28,
+        "probability": 0.00018
+      },
+      {
+        "word": " của",
+        "start": 175.28,
+        "end": 175.58,
+        "probability": 0.099
+      },
+      {
+        "word": " CompTIA",
+        "start": 175.64,
+        "end": 176.46,
+        "probability": 0.35906
+      },
+      {
+        "word": " có",
+        "start": 176.68,
+        "end": 176.78,
+        "probability": 0.00483
+      },
+      {
+        "word": " thể",
+        "start": 176.78,
+        "end": 176.78,
+        "probability": 0.02287
+      },
+      {
+        "word": " giúp",
+        "start": 176.78,
+        "end": 176.78,
+        "probability": 0.5245
+      },
+      {
+        "word": " các",
+        "start": 176.78,
+        "end": 177.18,
+        "probability": 0.00055
+      },
+      {
+        "word": " chuyên",
+        "start": 177.18,
+        "end": 177.36,
+        "probability": 0.00915
+      },
+      {
+        "word": " gia",
+        "start": 177.36,
+        "end": 177.54,
+        "probability": 5e-05
+      },
+      {
+        "word": " CNTT",
+        "start": 177.54,
+        "end": 177.54,
+        "probability": 6e-05
+      },
+      {
+        "word": " tăng",
+        "start": 177.54,
+        "end": 177.76,
+        "probability": 0.00569
+      },
+      {
+        "word": " cường",
+        "start": 177.76,
+        "end": 177.76,
+        "probability": 0.01026
+      },
+      {
+        "word": " kỹ",
+        "start": 177.82,
+        "end": 178.52,
+        "probability": 0.00907
+      },
+      {
+        "word": " năng,",
+        "start": 178.52,
+        "end": 178.68,
+        "probability": 0.54133
+      }
+    ]
+  },
+  {
+    "start": 179.86,
+    "end": 182.18,
+    "text": " nâng cao năng lực và có cơ hội được tuyển dụng hoặc thăng tiến trong ngành CNTT.",
+    "words": [
+      {
+        "word": " nâng",
+        "start": 179.86,
+        "end": 180.04,
+        "probability": 0.33255
+      },
+      {
+        "word": " cao",
+        "start": 180.04,
+        "end": 180.22,
+        "probability": 0.00944
+      },
+      {
+        "word": " năng",
+        "start": 180.22,
+        "end": 180.24,
+        "probability": 0.05223
+      },
+      {
+        "word": " lực",
+        "start": 180.24,
+        "end": 180.24,
+        "probability": 0.00666
+      },
+      {
+        "word": " và",
+        "start": 180.24,
+        "end": 180.24,
+        "probability": 0.00086
+      },
+      {
+        "word": " có",
+        "start": 180.24,
+        "end": 180.48,
+        "probability": 0.00507
+      },
+      {
+        "word": " cơ",
+        "start": 180.48,
+        "end": 180.5,
+        "probability": 0.01983
+      },
+      {
+        "word": " hội",
+        "start": 180.54,
+        "end": 180.86,
+        "probability": 0.59539
+      },
+      {
+        "word": " được",
+        "start": 180.94,
+        "end": 181.24,
+        "probability": 0.00016
+      },
+      {
+        "word": " tuyển",
+        "start": 181.24,
+        "end": 181.66,
+        "probability": 0.21725
+      },
+      {
+        "word": " dụng",
+        "start": 181.66,
+        "end": 181.66,
+        "probability": 0.32005
+      },
+      {
+        "word": " hoặc",
+        "start": 181.68,
+        "end": 181.8,
+        "probability": 0.00588
+      },
+      {
+        "word": " thăng",
+        "start": 181.8,
+        "end": 181.8,
+        "probability": 0.01363
+      },
+      {
+        "word": " tiến",
+        "start": 181.8,
+        "end": 181.8,
+        "probability": 0.06203
+      },
+      {
+        "word": " trong",
+        "start": 181.8,
+        "end": 181.8,
+        "probability": 0.01157
+      },
+      {
+        "word": " ngành",
+        "start": 181.8,
+        "end": 181.8,
+        "probability": 0.01622
+      },
+      {
+        "word": " CNTT.",
+        "start": 181.8,
+        "end": 182.18,
+        "probability": 0.05283
+      }
+    ]
+  },
+  {
+    "start": 183.48,
+    "end": 183.48,
+    "text": " CNTT.",
+    "words": [
+      {
+        "word": " CNTT.",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "start": 183.48,
+    "end": 183.48,
+    "text": "  4.",
+    "words": [
+      {
+        "word": "  4.",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "start": 183.48,
+    "end": 183.48,
+    "text": " Hình thức thi và đánh giá  Các kỳ thi của CompTIA được tổ chức theo tiêu chuẩn quốc tế,",
+    "words": [
+      {
+        "word": " Hình",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " thức",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " thi",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " và",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " đánh",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " giá",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": "  Các",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " kỳ",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " thi",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " của",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " CompTIA",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " được",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " tổ",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " chức",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " theo",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " tiêu",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " chuẩn",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " quốc",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " tế,",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "start": 183.48,
+    "end": 183.48,
+    "text": " với hình thức câu hỏi đa lựa chọn,",
+    "words": [
+      {
+        "word": " với",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " hình",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " thức",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " câu",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " hỏi",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " đa",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " lựa",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " chọn,",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "start": 183.48,
+    "end": 183.48,
+    "text": " bài thực hành mô phỏng (performance-based),",
+    "words": [
+      {
+        "word": " bài",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " thực",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " hành",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " mô",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " phỏng",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " (performance",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": "-based),",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "start": 183.48,
+    "end": 183.48,
+    "text": " và bài kiểm tra kỹ năng thực tế.",
+    "words": [
+      {
+        "word": " và",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " bài",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " kiểm",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " tra",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " kỹ",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " năng",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " thực",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " tế.",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "start": 183.48,
+    "end": 183.48,
+    "text": " Thí sinh có thể đăng ký và tham gia thi trực tuyến hoặc tại các trung tâm thi được CompTIA ủy quyền.",
+    "words": [
+      {
+        "word": " Thí",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " sinh",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " có",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " thể",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " đăng",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " ký",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " và",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " tham",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " gia",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " thi",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " trực",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " tuyến",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " hoặc",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " tại",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " các",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " trung",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " tâm",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " thi",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " được",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " CompTIA",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " ủy",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " quyền",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": ".",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "start": 183.48,
+    "end": 183.48,
+    "text": "  5.",
+    "words": [
+      {
+        "word": " ",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " 5",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": ".",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "start": 183.48,
+    "end": 183.48,
+    "text": " Tầm quan trọng trong ngành CNTT  Với uy tín và chất lượng đào tạo,",
+    "words": [
+      {
+        "word": " Tầm",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " quan",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " trọng",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " trong",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " ngành",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " CNTT",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " ",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " Với",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " uy",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " tín",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " và",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " chất",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " lượng",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " đào",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " tạo",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": ",",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "start": 183.48,
+    "end": 183.48,
+    "text": " CompTIA đóng góp rất lớn trong việc chuẩn hóa kiến thức và kỹ năng cho những người làm việc trong ngành CNTT.",
+    "words": [
+      {
+        "word": " CompTIA",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " đóng",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " góp",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " rất",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " lớn",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " trong",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " việc",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " chuẩn",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " hóa",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " kiến",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " thức",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " và",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " kỹ",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " năng",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " cho",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " những",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " người",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " làm",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " việc",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " trong",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " ngành",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " CNTT",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": ".",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "start": 183.48,
+    "end": 183.48,
+    "text": " Các chứng chỉ của CompTIA không chỉ giúp cá nhân phát triển sự nghiệp mà còn hỗ trợ doanh nghiệp trong việc duy trì một lực lượng lao động CNTT chuyên nghiệp và đủ năng lực.",
+    "words": [
+      {
+        "word": " Các",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " chứng",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " chỉ",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " của",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " CompTIA",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " không",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " chỉ",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " giúp",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " cá",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " nhân",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " phát",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " triển",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " sự",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " nghiệp",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " mà",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " còn",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " hỗ",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " trợ",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " doanh",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " nghiệp",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " trong",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " việc",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " duy",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " trì",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " một",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " lực",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " lượng",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " lao",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " động",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " CNTT",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " chuyên",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " nghiệp",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " và",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " đủ",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " năng",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " lực",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": ".",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "start": 183.48,
+    "end": 183.48,
+    "text": "  Tóm lại,",
+    "words": [
+      {
+        "word": " ",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " Tóm",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " lại",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": ",",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "start": 183.48,
+    "end": 183.48,
+    "text": " CompTIA là một tổ chức hàng đầu với mục tiêu nâng cao chuẩn mực và chất lượng nguồn nhân lực CNTT toàn cầu.",
+    "words": [
+      {
+        "word": " CompTIA",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " là",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " một",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " tổ",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " chức",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " hàng",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " đầu",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " với",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " mục",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " tiêu",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " nâng",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " cao",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " chuẩn",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " mực",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " và",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " chất",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " lượng",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " nguồn",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " nhân",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " lực",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " CNTT",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " toàn",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " cầu",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": ".",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "start": 183.48,
+    "end": 183.48,
+    "text": " Các chứng chỉ của CompTIA giúp trang bị kiến thức chuyên sâu,",
+    "words": [
+      {
+        "word": " Các",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " chứng",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " chỉ",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " của",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " CompTIA",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " giúp",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " trang",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " bị",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " kiến",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " thức",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " chuyên",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " sâu",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": ",",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "start": 183.48,
+    "end": 183.48,
+    "text": " kỹ năng thực tiễn,",
+    "words": [
+      {
+        "word": " kỹ",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " năng",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " thực",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " tiễn",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": ",",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "start": 183.48,
+    "end": 183.48,
+    "text": " đồng thời mở rộng cơ hội cho người làm việc trong ngành công nghệ.",
+    "words": [
+      {
+        "word": " đồng",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " thời",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " mở",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " rộng",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " cơ",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " hội",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " cho",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " người",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " làm",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " việc",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " trong",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " ngành",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " công",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": " nghệ",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      },
+      {
+        "word": ".",
+        "start": 183.48,
+        "end": 183.48,
+        "probability": 0.0
+      }
+    ]
+  }
+]
