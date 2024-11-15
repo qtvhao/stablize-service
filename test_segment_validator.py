@@ -4,8 +4,8 @@ from segment_validator import SegmentValidator
 @pytest.mark.parametrize(
     "words, expected_avg",
     [
-        ([{"probability": 0.8}, {"probability": 0.9}], 1),  # Normal case
-        ([{"probability": 1.0}, {"probability": 0.5}], 1),  # Mixed probabilities
+        ([{"probability": 0.8}, {"probability": 0.9}], 0.85),  # Normal case
+        ([{"probability": 1.0}, {"probability": 0.5}], 0.75),  # Mixed probabilities
         ([{"probability": 0.0}], 0),                       # Single value
         ([], 0),                                            # Empty list (edge case)
     ],
@@ -81,3 +81,21 @@ def test_get_valid_segments(segments, tolerance, expected_valid_segments):
     processor = SegmentValidator(tolerance)
     valid_segments = processor.get_valid_segments(segments)
     assert len(valid_segments) == expected_valid_segments
+
+@pytest.mark.parametrize(
+    "segments_json, tolerance, expected_valid_segments, expected_last_segment_text",
+    [
+        (
+            "./tests/synthesize-result-2532432836-segments.json",
+            .8, # Tolerance
+            8, # 8 valid segments
+            " và mạng máy tính." # Last segment text
+        )
+    ]
+)
+def test_get_valid_segments(segments_json, tolerance, expected_valid_segments, expected_last_segment_text):
+    processor = SegmentValidator(tolerance)
+    segments = processor.load_segments(segments_json)
+    valid_segments = processor.get_valid_segments(segments)
+    assert len(valid_segments) == expected_valid_segments
+    assert valid_segments[-1]["text"] == expected_last_segment_text

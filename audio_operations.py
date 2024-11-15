@@ -49,6 +49,8 @@ def get_segments_from_audio_file(audio_file, tokens_texts, output_file='output.j
         if not os.path.exists(stable_exec):
             stable_exec = "/root/.local/share/pypoetry/venv/bin/stable-ts"
         if not os.path.exists(stable_exec):
+            stable_exec = "/Library/Frameworks/Python.framework/Versions/3.11/bin/stable-ts"
+        if not os.path.exists(stable_exec):
             raise ValueError("stable-ts not found")
         # Open the process with Popen
         args = [

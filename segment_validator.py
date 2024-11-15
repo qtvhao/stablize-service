@@ -1,3 +1,5 @@
+import json
+
 class SegmentValidator:
     def __init__(self, tolerance):
         """
@@ -71,7 +73,7 @@ class SegmentValidator:
             int: Rounded average probability.
         """
         total_probability = sum(word['probability'] for word in words)
-        return round(total_probability / len(words))
+        return round(total_probability * 1e3) / 1e3 / len(words)
 
     @staticmethod
     def _is_termination_segment(segment):
@@ -109,3 +111,16 @@ class SegmentValidator:
             status (str): Status message.
         """
         print(f"Segment: {status}, Text: '{segment['text'].strip()}'")
+
+    def load_segments(self, segments_json):
+        """
+        Loads segments from a JSON file.
+
+        Parameters:
+            segments_json (str): Path to a JSON file containing segments.
+
+        Returns:
+            list: List of dictionaries representing segments.
+        """
+        with open(segments_json) as file:
+            return json.load(file)
