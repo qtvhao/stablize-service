@@ -1,6 +1,39 @@
 import pytest
 from sentence_matcher import SentenceMatcher
-from sentence_operations import split_sentences_by_highest_similarity_to_segments
+from segment_validator import SegmentValidator
+
+processor = SegmentValidator(.5)
+segments = processor.load_segments("./tests/synthesize-result-2532432836-segments.json")
+the_first_segment = segments[0]
+print(f"The first segment: {the_first_segment['text']}")
+valid_segments = segments
+valid_segments = [{"text": segment["text"]} for segment in valid_segments]
+# 
+tokens_1 = [
+    "CompTIA (Computing Technology Industry Association) là một tổ chức phi lợi nhuận hàng đầu trong lĩnh vực chứng chỉ và tiêu chuẩn công nghệ thông tin (CNTT) trên toàn cầu. Thành lập vào năm 1982, CompTIA chuyên cung cấp các chứng chỉ CNTT nhằm trang bị kiến thức nền tảng và kỹ năng thực tế cho những người làm việc trong ngành công nghệ, đặc biệt trong các lĩnh vực quản trị hệ thống, an ninh mạng, hỗ trợ kỹ thuật, và mạng máy tính.",
+    "1. Mục tiêu và vai trò của CompTIA",
+    "CompTIA cam kết phát triển và thúc đẩy ngành CNTT thông qua việc cung cấp các chương trình đào tạo và chứng chỉ chất lượng. Các chứng chỉ của CompTIA được thiết kế theo tiêu chuẩn toàn cầu, đảm bảo đáp ứng nhu cầu thực tế của doanh nghiệp và các tổ chức trong việc tuyển dụng nhân sự CNTT có chuyên môn.",
+    "Ngoài ra, CompTIA còn đóng vai trò xây dựng các chính sách và tiêu chuẩn công nghiệp, đồng thời cung cấp dữ liệu và nghiên cứu để giúp các công ty và tổ chức hiểu rõ xu hướng và yêu cầu công nghệ hiện đại.",
+    "2. Các chứng chỉ nổi bật của CompTIA",
+    "CompTIA cung cấp một loạt chứng chỉ chuyên sâu phù hợp cho từng giai đoạn phát triển trong sự nghiệp CNTT, bao gồm từ cơ bản đến nâng cao:",
+    "CompTIA IT Fundamentals (ITF+): Dành cho người mới bắt đầu, giúp họ hiểu rõ các khái niệm cơ bản về CNTT và chuẩn bị cho các chứng chỉ cao cấp hơn.",
+    "CompTIA A+: Một chứng chỉ căn bản nhưng quan trọng, tập trung vào các kỹ năng hỗ trợ kỹ thuật, xử lý sự cố, và bảo trì hệ thống máy tính.",
+    "CompTIA Network+: Tập trung vào kiến thức mạng máy tính, hướng dẫn cách thiết lập, quản lý và khắc phục sự cố mạng.",
+    "CompTIA Security+: Đây là chứng chỉ về an ninh mạng phổ biến, trang bị kiến thức nền tảng về bảo mật mạng, kiểm soát truy cập, và bảo vệ hệ thống khỏi các mối đe dọa bảo mật.",
+    "CompTIA CySA+ (Cybersecurity Analyst): Chứng chỉ này tập trung vào phân tích an ninh mạng, phát hiện các mối đe dọa và phòng chống tấn công.",
+    "CompTIA PenTest+: Dành cho những người làm trong lĩnh vực kiểm thử xâm nhập, cung cấp kiến thức về các kỹ thuật tấn công và khai thác điểm yếu hệ thống.",
+    "CompTIA Advanced Security Practitioner (CASP+): Đây là chứng chỉ cao cấp nhất trong lĩnh vực an ninh mạng của CompTIA, tập trung vào việc thiết kế và triển khai các giải pháp an ninh mạng.",
+    "3. Ưu điểm khi sở hữu chứng chỉ CompTIA",
+    "Được công nhận toàn cầu: Chứng chỉ của CompTIA được công nhận rộng rãi và đánh giá cao bởi các doanh nghiệp và tổ chức trên thế giới.",
+    "Không lệ thuộc nhà cung cấp (Vendor-neutral): CompTIA tập trung vào các khái niệm và kỹ năng cốt lõi, không phụ thuộc vào bất kỳ công nghệ hoặc nhà cung cấp cụ thể nào, giúp người học linh hoạt trong nhiều môi trường làm việc khác nhau.",
+    "Cơ hội nghề nghiệp tốt hơn: Việc sở hữu các chứng chỉ của CompTIA có thể giúp các chuyên gia CNTT tăng cường kỹ năng, nâng cao năng lực và có cơ hội được tuyển dụng hoặc thăng tiến trong ngành CNTT.",
+    "4. Hình thức thi và đánh giá",
+    "Các kỳ thi của CompTIA được tổ chức theo tiêu chuẩn quốc tế, với hình thức câu hỏi đa lựa chọn, bài thực hành mô phỏng (performance-based), và bài kiểm tra kỹ năng thực tế. Thí sinh có thể đăng ký và tham gia thi trực tuyến hoặc tại các trung tâm thi được CompTIA ủy quyền.",
+    "5. Tầm quan trọng trong ngành CNTT",
+    "Với uy tín và chất lượng đào tạo, CompTIA đóng góp rất lớn trong việc chuẩn hóa kiến thức và kỹ năng cho những người làm việc trong ngành CNTT. Các chứng chỉ của CompTIA không chỉ giúp cá nhân phát triển sự nghiệp mà còn hỗ trợ doanh nghiệp trong việc duy trì một lực lượng lao động CNTT chuyên nghiệp và đủ năng lực.",
+    "Tóm lại, CompTIA là một tổ chức hàng đầu với mục tiêu nâng cao chuẩn mực và chất lượng nguồn nhân lực CNTT toàn cầu. Các chứng chỉ của CompTIA giúp trang bị kiến thức chuyên sâu, kỹ năng thực tiễn, đồng thời mở rộng cơ hội cho người làm việc trong ngành công nghệ."
+]
+# 
 
 @pytest.mark.parametrize(
     "corrected_segments, sentences_texts, expected_processed",
@@ -61,6 +94,31 @@ from sentence_operations import split_sentences_by_highest_similarity_to_segment
             ["Lorem ipsum consectetur 2 3 4 5 6", "Another sentence"],
             0 # không có câu nào khớp
         ),
+        (
+            valid_segments,
+            tokens_1,
+            22
+        ),
+        (
+            valid_segments[:68],
+            tokens_1,
+            19
+        ),
+        (
+            valid_segments[:65],
+            tokens_1,
+            17
+        ),
+        (
+            valid_segments[:58],
+            tokens_1,
+            16
+        ),
+        (
+            valid_segments[:10],
+            tokens_1,
+            2
+        ),
     ],
 )
 
@@ -71,6 +129,12 @@ def test_split_sentences_by_highest_similarity_to_segments(
     processed, remaining = SentenceMatcher.split_sentences_by_highest_similarity_to_segments(
         sentences_texts, corrected_segments
     )
+    print("\n\n")
+    print("+")
+    print(f"Corrected: {corrected_segments}")
+    print("+")
+    print(f"Sentences: {sentences_texts}")
+    print("=====")
     print(f"Processed: {processed}")
     print(f"Expected: {expected_processed}")
     assert len(processed) == expected_processed
