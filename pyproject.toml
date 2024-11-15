@@ -4,10 +4,9 @@ version = "0.1.0"
 description = ""
 authors = ["qtvhao"]
 readme = "README.md"
-package-mode = false
 
 [tool.poetry.dependencies]
-python = "3.11.2"
+python = "^3.11"
 gunicorn = "23.0.0"
 flask = "3.0.3"
 flask-cors = "5.0.0"
