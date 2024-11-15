@@ -1,4 +1,5 @@
 from sentence_operations import split_sentences_by_highest_similarity_to_segments
+from segment_validator import SegmentValidator
 from utils import calculate_similarity_ratio
 
 def get_segments_by_index(segments, index):
@@ -19,37 +20,11 @@ def get_segments_by_index(segments, index):
     
     return corrected_segments, incorrected_segments
 
-def get_valid_segments(segments):
-    for i, segment in enumerate(segments):
-        if segment['end'] == segment['start']:
-            return valid_segments
-        else:
-        # print(f"Segment {i}: {segment['text']}")
-        # words_avg_probability càng lớn, segment càng chính xác
-        # tolerance càng lớn, nghĩa là càng chấp nhận được nhiều segment không chính xác
-        # tolerance càng nhỏ, nghĩa là khắt khe hơn với các segment không chính xác
-            tolerance = 14131791
-            words = segment.get('words', [])
-            if words:
-                words_avg_probability = sum([word['probability'] for word in words]) / len(words)
-                segment_text_length = len(segment['text'].strip())
-                print(f"Words avg probability: {words_avg_probability} ({segment_text_length})")
-                if words_avg_probability <= tolerance and segment_text_length > 2:
-                    print(f"Segment {i}: ({segment['text']}) has low probability ({words_avg_probability})")
-                    valid_segments = segments[:i]
-                    print(f"i: {i}")
-                    if 0 == i:
-                        continue
-                    if valid_segments:
-                        last_valid_segment = valid_segments[-1]
-                        print(f"Last valid segment: {last_valid_segment['text']}")
-                    return valid_segments
-            else:
-                print(f"Segment {i}: {segment['text']}")
-                # raise ValueError("Segment doesn't have words")
-            valid_segments = segments[:i]
-    # print(f"Valid segments: {valid_segments}")
-    return segments
+def get_valid_segments(segments, tolerance=.2):
+    processor = SegmentValidator(tolerance)
+    valid_segments = processor.get_valid_segments(segments)
+    
+    return valid_segments
 
 def find_best_segment_match(segments, sentences_texts):
     """
