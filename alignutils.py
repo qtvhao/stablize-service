@@ -27,7 +27,7 @@ def get_valid_segments(segments, tolerance=.2):
     
     return valid_segments
 
-def find_best_segment_match(segments, sentences_texts):
+def find_best_segment_match(segments, sentences_texts, min_tolerance=0.3):
     """
     Tìm segments tối đa, mà segments đó có độ tương đồng cao nhất với sentences_texts.
     """
@@ -41,7 +41,7 @@ def find_best_segment_match(segments, sentences_texts):
             print(f"Processed: {processed_sentences}")
             break
         tolerance *= 0.8
-        if tolerance < 0.3:
+        if tolerance < min_tolerance:
             print("Tolerance is too low")
             break
 

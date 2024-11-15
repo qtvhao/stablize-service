@@ -66,7 +66,8 @@ def get_segments_from_audio_file(audio_file, tokens_texts, output_file='output.j
             "--output_dir", dirname(output_file)
         ]
         print(args)
-        process = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        SSL_CERT_FILE = os.environ.get('SSL_CERT_FILE')
+        process = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, env={'SSL_CERT_FILE': SSL_CERT_FILE})
 
         # Print outputs in real-time
         print("=== Output ===")
@@ -119,7 +120,7 @@ def get_segments_from_segments_file(audio_file, tokens_texts, output_file='outpu
             "probability": round(word['probability'] * 1e8),
         } for word in segment['words']]
     } for segment in segments]
-    segments_to_add, segments_end, remaining_tokens, matched_sentences = find_best_segment_match(map_segments, tokens_texts)
+    segments_to_add, segments_end, remaining_tokens, matched_sentences = find_best_segment_match(map_segments, tokens_texts, 0.2)
     start = segments_end
     
     # Step 4: Print debug information
