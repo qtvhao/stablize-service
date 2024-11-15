@@ -13,7 +13,14 @@ class Segment:
         """
         Calculates similarity between the segment and a sentence using SequenceMatcher.
         """
-        return SequenceMatcher(None, self.text, sentence).ratio()
+        self_text_last_5_words = " ".join(self.text.split()[-15:])
+        words_count = len(self_text_last_5_words.split())
+        sentence_last_5_words = " ".join(sentence.split()[(words_count * -1):])
+        return SequenceMatcher(
+            None,
+            self_text_last_5_words,
+            sentence_last_5_words
+        ).ratio()
 
 
 class SentenceMatcher:
@@ -34,32 +41,30 @@ class SentenceMatcher:
         processed = []
         remaining = []
 
-        for sentence in self.sentences:
-            best_match = self._find_best_match(sentence)
-            if best_match:  # If a best match is found
-                processed.append(sentence)
-            else:
-                remaining.append(sentence)
-
+        processed_index = self._find_best_match()
+        if processed_index is None:
+            return [], self.sentences
+        processed = self.sentences[:processed_index+1]
+        remaining = self.sentences[processed_index:]
         return processed, remaining
 
-    def _find_best_match(self, sentence: str) -> Segment:
+    def _find_best_match(self) -> int:
         """
         Finds the segment with the highest similarity to the given sentence.
         If no match is found, returns None.
         """
         best_ratio = 0
-        best_segment = None
+        processed_index = None
 
-        for segment in self.segments:
-            ratio = segment.similarity(sentence)
-            print(f"Ratio: {ratio}")
-            if ratio > best_ratio and ratio > 0.5:
-                # Update if a better match is found
-                best_ratio = ratio
-                best_segment = segment
+        for i, sentence in enumerate(self.sentences):
+            for segment in self.segments:
+                ratio = segment.similarity(sentence)
+                if ratio >= best_ratio and ratio > 0.5:
+                    # Update if a better match is found
+                    best_ratio = ratio
+                    processed_index = i
 
-        return best_segment
+        return processed_index
 
     @classmethod
     def split_sentences_by_highest_similarity_to_segments(
