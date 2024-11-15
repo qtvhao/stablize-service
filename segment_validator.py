@@ -23,6 +23,8 @@ class SegmentValidator:
         valid_segments = []
 
         for index, segment in enumerate(segments):
+            if index == 0:
+                continue
             if self.process_segment(segment):
                 valid_segments = segments[:index + 1]
             else:
@@ -59,11 +61,12 @@ class SegmentValidator:
             self._log_segment_status(segment, "Valid segment. This is a special case")
             return True
 
-        if avg_probability <= self.tolerance:
-            self._log_segment_status(segment, "Valid segment")
+        if avg_probability <= self.tolerance: # avg_probability nhỏ hơn ngưỡng tolerance, nghĩa là segment này có khả năng là sai
+            self._log_segment_status(segment, "Invalid segment due to low probability")
+            return False
+        else:
+            self._log_segment_status(segment, "Average probability is within tolerance")
             return True
-
-        return False
 
     @staticmethod
     def calculate_avg_probability(words):

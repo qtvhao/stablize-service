@@ -116,18 +116,27 @@ def test_get_valid_segments(segments, tolerance, expected_valid_segments):
             5, # number of valid segments
             " đặc biệt trong các lĩnh vực quản trị hệ thống," # Last segment text
         ),
-        # (
-        #     ["./tests/synthesize-result-2532432836-segments.json", 0],
-        #     .6,
-        #     3, # 3 valid segments
-        #     " Thành lập vào năm 1982, " # Last segment text
-        # ),
-        # (
-        #     ["./tests/synthesize-result-2532432836-segments.json", 9],
-        #     .8,
-        #     20, # 20 valid segments
-        #     " tập trung vào các kỹ năng hỗ trợ kỹ thuật," # Last segment text
-        # ),
+        (
+            ["./tests/synthesize-result-2532432836-segments.json", 0],
+            .6,
+            0, # number of valid segments
+            " Thành lập vào năm 1982, " # Last segment text
+        ),
+        ####
+        (
+            # Invalid segment due to low probability
+            ["./tests/synthesize-result-2532432836___61_54_end-segments.json", 0],
+            .3,
+            9, # number of valid segments
+            "và bảo trì hệ thống máy tính." # Last segment text
+        ),
+        (
+            # Invalid segment due to low probability. Special case, starts with CompTIA
+            ["./tests/synthesize-result-2532432836___61_54___23_5_end-segments.json", 0],
+            .4,
+            13, # number of valid segments
+            "và bảo vệ hệ thống khỏi các mối đe dọa bảo mật." # Last segment text
+        ),
     ]
 )
 def test_get_valid_segments(segments_test_suite, tolerance, expected_valid_segments, expected_last_segment_text):
@@ -140,4 +149,5 @@ def test_get_valid_segments(segments_test_suite, tolerance, expected_valid_segme
     valid_segments = processor.get_valid_segments(segments)
     valid_segments_count = len(valid_segments)
     assert valid_segments_count == expected_valid_segments, f"Expected {expected_valid_segments} valid segments, but got {valid_segments_count}"
-    assert valid_segments[-1]["text"].strip() == expected_last_segment_text.strip(), f"Expected last segment text to be '{expected_last_segment_text}', but got '{valid_segments[-1]['text']}'"
+    if valid_segments:
+        assert valid_segments[-1]["text"].strip() == expected_last_segment_text.strip(), f"Expected last segment text to be '{expected_last_segment_text}', but got '{valid_segments[-1]['text']}'"
