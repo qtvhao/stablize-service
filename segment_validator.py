@@ -55,7 +55,11 @@ class SegmentValidator:
 
         self._log_segment_details(segment, avg_probability)
 
-        if avg_probability <= self.tolerance and text_length > 2:
+        if text_length <= 2 and avg_probability == 0:
+            self._log_segment_status(segment, "Valid segment. This is a special case")
+            return True
+
+        if avg_probability <= self.tolerance:
             self._log_segment_status(segment, "Valid segment")
             return True
 

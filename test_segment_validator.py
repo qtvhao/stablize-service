@@ -32,11 +32,11 @@ def test_calculate_avg_probability(words, expected_avg):
                         "probability": 0.5
                     }
                 ]
-            }, 
-            1, 
+            },
+            1,
             True
         ),  # Valid segment
-        ({"start": 0, "end": 1, "text": "5.", "words": [{"probability": 0.5}]}, 1, False),   # Invalid text length
+        ({"start": 0, "end": 1, "text": "5.", "words": [{"probability": 0.5}]}, 1, True),  # Special case
         ({"start": 0, "end": 1, "text": "Hello", "words": [{"probability": 2.0}]}, 1, False),  # High probability
         ({"start": 0, "end": 0, "text": "Hello", "words": [{"probability": 0.5}]}, 1, False),  # Termination segment
         ({"start": 0, "end": 1, "text": "", "words": []}, 1, False),                        # Missing words
@@ -45,7 +45,7 @@ def test_calculate_avg_probability(words, expected_avg):
 def test_process_segment(segment, tolerance, expected_result):
     processor = SegmentValidator(tolerance)
     result = processor.process_segment(segment)
-    assert result == expected_result
+    assert result == expected_result, f"Expected {expected_result}, but got {result}"
 
 
 @pytest.mark.parametrize(
@@ -82,14 +82,27 @@ def test_get_valid_segments(segments, tolerance, expected_valid_segments):
     valid_segments = processor.get_valid_segments(segments)
     assert len(valid_segments) == expected_valid_segments
 
+# Tolerance càng cao thì càng nhiều segment được chấp nhận, tối đa 1.0
 @pytest.mark.parametrize(
     "segments_json, tolerance, expected_valid_segments, expected_last_segment_text",
     [
         (
             "./tests/synthesize-result-2532432836-segments.json",
             .8, # Tolerance
-            8, # 8 valid segments
-            " và mạng máy tính." # Last segment text
+            29, # 8 valid segments
+            " tập trung vào các kỹ năng hỗ trợ kỹ thuật," # Last segment text
+        ),
+        (
+            "./tests/synthesize-result-2532432836-segments.json",
+            .7,
+            6, # 6 valid segments
+            " an ninh mạng," # Last segment text
+        ),
+        (
+            "./tests/synthesize-result-2532432836-segments.json",
+            .6,
+            3, # 3 valid segments
+            " Thành lập vào năm 1982," # Last segment text
         )
     ]
 )
@@ -97,5 +110,6 @@ def test_get_valid_segments(segments_json, tolerance, expected_valid_segments, e
     processor = SegmentValidator(tolerance)
     segments = processor.load_segments(segments_json)
     valid_segments = processor.get_valid_segments(segments)
-    assert len(valid_segments) == expected_valid_segments
-    assert valid_segments[-1]["text"] == expected_last_segment_text
+    valid_segments_count = len(valid_segments)
+    assert valid_segments_count == expected_valid_segments, f"Expected {expected_valid_segments} valid segments, but got {valid_segments_count}"
+    assert valid_segments[-1]["text"] == expected_last_segment_text, f"Expected last segment text to be '{expected_last_segment_text}', but got '{valid_segments[-1]['text']}'"
