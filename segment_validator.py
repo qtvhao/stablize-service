@@ -1,4 +1,5 @@
 import json
+from segment import Segment
 
 class SegmentValidator:
     def __init__(self, tolerance):
@@ -32,7 +33,7 @@ class SegmentValidator:
 
         return valid_segments
 
-    def process_segment(self, segment):
+    def process_segment(self, segment: Segment):
         """
         Validates a segment based on its probability and text length.
 
@@ -46,14 +47,14 @@ class SegmentValidator:
         if self._is_termination_segment(segment):
             self._log_segment_status(segment, "Termination segment")
             return False
-        words = segment.get('words', [])
+        words = segment.words
 
         if not words:
             self._log_segment_status(segment, "Missing 'words'")
             return False
 
         avg_probability = self.calculate_avg_probability(words)
-        text_length = len(segment['text'].strip())
+        text_length = len(segment.text.strip())
 
         self._log_segment_details(segment, avg_probability)
 
@@ -83,17 +84,17 @@ class SegmentValidator:
         return round(total_probability * 1e3) / 1e3 / len(words)
 
     @staticmethod
-    def _is_termination_segment(segment):
+    def _is_termination_segment(segment: Segment):
         """
         Checks if a segment is a termination segment.
 
         Parameters:
-            segment (dict): A dictionary representing a segment.
+            segment (Segment): A dictionary representing a segment.
 
         Returns:
             bool: True if the segment's start equals its end, False otherwise.
         """
-        return segment['end'] == segment['start']
+        return segment.end == segment.start
 
     @staticmethod
     def _log_segment_details(segment, avg_probability):
@@ -105,7 +106,7 @@ class SegmentValidator:
             segment (dict): Segment data.
             avg_probability (int): Average probability of the segment.
         """
-        print(f"Segment: Avg Probability = {avg_probability}, Text = '{segment['text'].strip()}'")
+        print(f"Segment: Avg Probability = {avg_probability}, Text = '{segment.text.strip()}'")
 
     @staticmethod
     def _log_segment_status(segment, status):
@@ -117,7 +118,7 @@ class SegmentValidator:
             segment (dict): Segment data.
             status (str): Status message.
         """
-        print(f"Segment: {status}, Text: '{segment['text'].strip()}'")
+        print(f"Segment: {status}, Text: '{segment.text.strip()}'")
 
     def load_segments(self, segments_json):
         """

@@ -31,7 +31,7 @@ def find_best_segment_match(segments, sentences_texts, min_tolerance=0.3):
     """
     Tìm segments tối đa, mà segments đó có độ tương đồng cao nhất với sentences_texts.
     """
-    tolerance = 1
+    tolerance = .9
     while True:
         segments = get_valid_segments(segments, tolerance)
         processed_sentences, remaining_sentences = SentenceMatcher.split_sentences_by_highest_similarity_to_segments(
@@ -41,6 +41,7 @@ def find_best_segment_match(segments, sentences_texts, min_tolerance=0.3):
             print(f"Processed: {processed_sentences}")
             break
         tolerance *= 0.8
+        tolerance = round(tolerance, 2)
         if tolerance < min_tolerance:
             print("Tolerance is too low")
             break

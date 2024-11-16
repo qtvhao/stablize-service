@@ -35,8 +35,9 @@ class SentenceMatcher:
         processed_index = self._find_best_match()
         if processed_index is None:
             return [], self.sentences
-        processed = self.sentences[:processed_index+1]
-        remaining = self.sentences[processed_index:]
+        processed = self.sentences[:processed_index + 1]
+        remaining = self.sentences[processed_index + 1:]
+
         return processed, remaining
 
     def _find_best_match(self) -> int:
