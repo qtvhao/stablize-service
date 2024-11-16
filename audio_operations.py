@@ -38,6 +38,7 @@ def cut_audio_file(audio_file, start=None, end=None):
     print(process.stderr)
 
     process.check_returncode()  # Ensure the subprocess completed successfully
+    print(f"Cut audio file from {start} to {end} to {output_file}")
     return output_file
 
 def get_segments_from_audio_file(audio_file, tokens_texts, output_file='output.json'):
@@ -156,13 +157,11 @@ def get_segments_from_segments_file(audio_file, tokens_texts, output_file='outpu
     matched_sentences_joined = "\n\n".join(matched_sentences)
 
     # Step 7: Cut the audio file from the best match endpoint and save remaining tokens
-    none_start = cut_audio_file(audio_file, None, start)
+    # none_start = cut_audio_file(audio_file, None, start)
+    print(f"Cutting audio file from {start} to END")
     trimmed_audio_file = cut_audio_file(audio_file, start, None)
-    with open(f"{trimmed_audio_file}-processed.txt", 'w') as file:
-        file.write(matched_sentences_joined)
-    # with open(f"{trimmed_audio_file}-remaining.txt", 'w') as file:
-        # file.write(remaining_tokens_joined)
-        
+    print(f"Trimmed audio file: {trimmed_audio_file}")
+
     return trimmed_audio_file, remaining_tokens, start, segments_to_add
 
 def convert_audio_file(audio_file):
@@ -190,6 +189,7 @@ def recursive_get_segments_from_audio_file(audio_file, tokens_texts):
         return []
     output_file = audio_file.replace('.mp3', '.json')
     trimmed_audio_file, remaining_tokens, start, segments = get_segments_from_audio_file(audio_file, tokens_texts, output_file)
+    print(f"Remaining tokens: {len(remaining_tokens)}")
 
     # Step 8: Recursively process remaining audio and tokens
     remaining_segments = recursive_get_segments_from_audio_file(trimmed_audio_file, remaining_tokens)
@@ -201,12 +201,6 @@ def recursive_get_segments_from_audio_file(audio_file, tokens_texts):
         text=segment.text,
         segments=segment.segments
     ) for segment in remaining_segments]
-    # aligned_segments = [{
-    #     'start': round(segment.start + start, 2),
-    #     'end': round(segment.end + start, 2),
-    #     'words': get_words(segment.words, start),
-    #     'text': segment.text
-    # } for segment in remaining_segments]
 
     # Assuming corrected_segments is defined or meant to be the initially aligned segments
     return segments + aligned_segments
