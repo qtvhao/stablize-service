@@ -7,6 +7,7 @@ class Segment:
     def __init__(self, text: str, end: float, start: float, words: List[dict] = [], segments: List[dict] = None):
         if len(segments) == None:
             raise ValueError("Segments cannot be None.")
+        self.segments = segments
         segments_txt = " ".join([segment['text'] for segment in segments])
         self.segments_txt_len = len(segments_txt)
         self.text = text

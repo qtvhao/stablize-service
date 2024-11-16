@@ -2,6 +2,7 @@ import subprocess
 import json
 import os
 from sentence_matcher import SentenceMatcher
+from segment import Segment
 from os.path import basename, dirname
 # import stable_whisper
 # from time import sleep
@@ -190,6 +191,7 @@ def recursive_get_segments_from_audio_file(audio_file, tokens_texts):
         end=round(segment.end + start, 2),
         words=get_words(segment.words, start),
         text=segment.text,
+        segments=segment.segments
     ) for segment in remaining_segments]
     # aligned_segments = [{
     #     'start': round(segment.start + start, 2),
