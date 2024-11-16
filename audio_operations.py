@@ -74,7 +74,7 @@ def get_segments_from_audio_file(audio_file, tokens_texts, output_file='output.j
         if os.environ.get('SSL_CERT_FILE') and not SSL_CERT_FILE:
             SSL_CERT_FILE = os.environ.get('SSL_CERT_FILE')
         env = {
-            'PATH': "/opt/homebrew/bin",
+            'PATH': "/opt/homebrew/bin:/usr/bin",
         }
         if SSL_CERT_FILE:
             env['SSL_CERT_FILE'] = SSL_CERT_FILE
