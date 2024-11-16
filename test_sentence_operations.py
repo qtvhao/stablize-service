@@ -242,8 +242,7 @@ def test_find_best_segment_match(segments, sentences_texts, min_tolerance, expec
     matched_segments, matched_segment_end, remaining_sentences, processed_sentences = matcher.find_best_segment_match(min_tolerance)
     
     # Assertions
-    print("\n\nMatched segments count: ", len(matched_segments))
-    assert len(matched_segments) == expected["matched_segments"], "Matched segments không khớp với expected output."
+    assert len(matched_segments) == expected["matched_segments"], f"Matched segments không khớp với expected output. \nExpected: {expected['matched_segments']}, but got matched_segments {len(matched_segments)}"
     assert matched_segment_end == expected["matched_segment_end"], "Matched segment end does not match the expected output."
     assert len(remaining_sentences) == expected["remaining_sentences"], "Remaining sentences do not match the expected output."
     assert len(processed_sentences) == expected["processed_sentences"], "Processed sentences do not match the expected output."

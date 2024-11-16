@@ -20,7 +20,8 @@ class SentenceMatcher:
             segment['end'],
             segment['start'],
             segment.get('words', []),
-        ) for segment in segments]
+            segments[:i + 1]
+        ) for i, segment in enumerate(segments)]
         self.sentences = sentences
 
     def match_sentences(self, valid_segments) -> Tuple[List[str], List[str]]:
@@ -111,8 +112,8 @@ class SentenceMatcher:
         matched_segment_end = None
 
         for i, segment in enumerate(valid_segments):
-            for sentence in processed_sentences:
-                ratio = segment.similarity(sentence)
+            for j, _sentence in enumerate(processed_sentences):
+                ratio = segment.similarity(processed_sentences[:j + 1])
                 if ratio >= highest_ratio and ratio > 0.5:
                     highest_ratio = ratio
                     matched_segments = valid_segments[:i + 1]
