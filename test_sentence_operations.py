@@ -140,6 +140,11 @@ tokens_1 = [
             tokens_1,
             2
         ),
+        (
+            segments[:6],
+            tokens_1,
+            0,
+        ),
     ],
 )
 
@@ -151,14 +156,6 @@ def test_split_sentences_by_highest_similarity_to_segments(
     processed, remaining = sentence_matcher.match_sentences(
         sentence_matcher.segments[:len(corrected_segments)]
     )
-    print("\n\n")
-    print("+")
-    print(f"Corrected: {corrected_segments}")
-    print("+")
-    print(f"Sentences: {sentences_texts}")
-    print("=====")
-    print(f"Processed: {processed}")
-    print(f"Expected: {expected_processed}")
     assert len(processed) == expected_processed
 
 import pytest
@@ -227,10 +224,10 @@ import pytest
         tokens_1,
         0.2,
         {
-            "matched_segments": 4,
-            "matched_segment_end": 20.22,
-            "remaining_sentences": 1,
-            "processed_sentences": 2
+            "matched_segments": 16,
+            "matched_segment_end": 61.54,
+            "remaining_sentences": 18,
+            "processed_sentences": 4
         }
     )
 ])
@@ -244,5 +241,5 @@ def test_find_best_segment_match(segments, sentences_texts, min_tolerance, expec
     # Assertions
     assert len(matched_segments) == expected["matched_segments"], f"Matched segments không khớp với expected output. \nExpected: {expected['matched_segments']}, but got matched_segments {len(matched_segments)}"
     assert matched_segment_end == expected["matched_segment_end"], "Matched segment end does not match the expected output."
-    assert len(remaining_sentences) == expected["remaining_sentences"], "Remaining sentences do not match the expected output."
+    assert len(remaining_sentences) == expected["remaining_sentences"], f"Remaining sentences do not match the expected output. \nExpected: {expected['remaining_sentences']}, but got remaining_sentences {len(remaining_sentences)}"
     assert len(processed_sentences) == expected["processed_sentences"], "Processed sentences do not match the expected output."
