@@ -22,9 +22,19 @@ def seconds_to_ffmpeg_time(seconds):
     return f"{hours:02}:{minutes:02}:{sec:06.3f}"
 
 def cut_audio_file(audio_file, start=None, end=None):
+    """
+    Cuts an audio file using ffmpeg.
+    :param audio_file: Path to the input audio file.
+    :param start: Start time in seconds (float or int), or None to start from the beginning.
+    :param end: End time in seconds (float or int), or None to end at the file's duration.
+    :return: Path to the output audio file.
+    """
+    # Prepare the output file name
     start_str = str(start).replace('.', '_') if start is not None else 'start'
     end_str = str(end).replace('.', '_') if end is not None else 'end'
     output_file = audio_file.replace('_end', '').replace('.mp3', f'___{start_str}_{end_str}.mp3')
+
+    # Build the ffmpeg command arguments
     if start is None:
         args = [ffmpeg_executable, "-y", "-i", audio_file, "-to", seconds_to_ffmpeg_time(end), "-c", "copy", output_file]
     elif end is None:
@@ -32,21 +42,33 @@ def cut_audio_file(audio_file, start=None, end=None):
     else:
         args = [ffmpeg_executable, "-y", "-i", audio_file, "-ss", seconds_to_ffmpeg_time(start), "-to", seconds_to_ffmpeg_time(end), "-c", "copy", output_file]
 
-    process = subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    
-    return_code = process.returncode
-    print(f"Return code: {return_code}")
-    if return_code != 0:
-        raise ValueError("ffmpeg command failed with return code: " + str(return_code))
+    print(f"Running command: {' '.join(args)}")
 
-    # Print stdout and stderr
-    print("=== ffmpeg stdout ===")
-    print(process.stdout)
-    print("=== ffmpeg stderr ===")
-    print(process.stderr)
+    try:
+        # Run the ffmpeg command and capture output
+        process = subprocess.run(
+            args, capture_output=True, text=True, check=True
+        )
+        # Print stdout and stderr for debugging
+        print("=== ffmpeg stdout ===")
+        print(process.stdout)
+        print("=== ffmpeg stderr ===")
+        print(process.stderr)
 
-    process.check_returncode()  # Ensure the subprocess completed successfully
-    print(f"Cut audio file from {start} to {end} to {output_file}")
+    except subprocess.CalledProcessError as e:
+        # Handle ffmpeg errors
+        print("Error during ffmpeg execution:")
+        print(f"Return code: {e.returncode}")
+        print(f"Output: {e.output}")
+        print(f"Error output: {e.stderr}")
+        raise ValueError(f"ffmpeg command failed with return code: {e.returncode}")
+
+    except Exception as e:
+        # Handle unexpected errors
+        print(f"Unexpected error: {e}")
+        raise
+
+    print(f"Cut audio file from {start} to {end} successfully. Output: {output_file}")
     return output_file
 
 def get_segments_from_audio_file(audio_file, tokens_texts, output_file='output.json'):
