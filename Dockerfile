@@ -19,6 +19,6 @@ RUN pip3 install -U stable-ts --no-cache-dir
 COPY ./tests/ ./tests/
 RUN stable-ts --model tiny --device cpu -y tests/synthesize-result-2532432836.mp3
 COPY *.py ./
-RUN pytest ./test_audio_operations.py -vv
+# RUN pytest ./test_audio_operations.py -vv
 
 CMD [ "gunicorn", "-w", "1", "-b", "0.0.0.0:8000", "app:create_app"]

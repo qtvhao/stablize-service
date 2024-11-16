@@ -26,11 +26,18 @@ def cut_audio_file(audio_file, start=None, end=None):
     end_str = str(end).replace('.', '_') if end is not None else 'end'
     output_file = audio_file.replace('_end', '').replace('.mp3', f'___{start_str}_{end_str}.mp3')
     if start is None:
-        process = subprocess.run([ffmpeg_executable, "-y", "-i", audio_file, "-to", seconds_to_ffmpeg_time(end), "-c", "copy", output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        args = [ffmpeg_executable, "-y", "-i", audio_file, "-to", seconds_to_ffmpeg_time(end), "-c", "copy", output_file]
     elif end is None:
-        process = subprocess.run([ffmpeg_executable, "-y", "-i", audio_file, "-ss", seconds_to_ffmpeg_time(start), "-c", "copy", output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        args = [ffmpeg_executable, "-y", "-i", audio_file, "-ss", seconds_to_ffmpeg_time(start), "-c", "copy", output_file]
     else:
-        process = subprocess.run([ffmpeg_executable, "-y", "-i", audio_file, "-ss", seconds_to_ffmpeg_time(start), "-to", seconds_to_ffmpeg_time(end), "-c", "copy", output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        args = [ffmpeg_executable, "-y", "-i", audio_file, "-ss", seconds_to_ffmpeg_time(start), "-to", seconds_to_ffmpeg_time(end), "-c", "copy", output_file]
+
+    process = subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    
+    return_code = process.returncode
+    print(f"Return code: {return_code}")
+    if return_code != 0:
+        raise ValueError("ffmpeg command failed with return code: " + str(return_code))
 
     # Print stdout and stderr
     print("=== ffmpeg stdout ===")
