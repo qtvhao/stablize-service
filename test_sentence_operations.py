@@ -147,8 +147,9 @@ def test_split_sentences_by_highest_similarity_to_segments(
     corrected_segments, sentences_texts, expected_processed
 ):
     # Use the class method
-    processed, remaining = SentenceMatcher.split_sentences_by_highest_similarity_to_segments(
-        sentences_texts, corrected_segments
+    sentence_matcher = SentenceMatcher(corrected_segments, sentences_texts)
+    processed, remaining = sentence_matcher.match_sentences(
+        sentence_matcher.segments[:len(corrected_segments)]
     )
     print("\n\n")
     print("+")

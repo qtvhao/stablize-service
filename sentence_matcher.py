@@ -23,7 +23,7 @@ class SentenceMatcher:
         ) for segment in segments]
         self.sentences = sentences
 
-    def match_sentences(self) -> Tuple[List[str], List[str]]:
+    def match_sentences(self, valid_segments) -> Tuple[List[str], List[str]]:
         """
         Matches sentences with segments based on the highest similarity ratio.
         Returns:
@@ -33,7 +33,7 @@ class SentenceMatcher:
         processed = []
         remaining = []
 
-        processed_index = self._find_best_match()
+        processed_index = self._find_best_match(valid_segments)
         if processed_index is None:
             return [], self.sentences
         processed = self.sentences[:processed_index + 1]
@@ -41,7 +41,7 @@ class SentenceMatcher:
 
         return processed, remaining
 
-    def _find_best_match(self) -> int:
+    def _find_best_match(self, valid_segments: List[Segment]) -> int:
         """
         Finds the segment with the highest similarity to the given sentence.
         If no match is found, returns None.
@@ -50,8 +50,8 @@ class SentenceMatcher:
         processed_index = None
 
         for i, sentence in enumerate(self.sentences):
-            for segment in self.segments:
-                ratio = segment.similarity(sentence)
+            for j, segment in enumerate(valid_segments):
+                ratio = segment.similarity(self.sentences[:i + 1])
                 if ratio >= best_ratio and ratio > 0.5:
                     # Update if a better match is found
                     best_ratio = ratio
@@ -59,19 +59,16 @@ class SentenceMatcher:
 
         return processed_index
 
-    @classmethod
     def split_sentences_by_highest_similarity_to_segments(
-        cls, sentences_texts: List[str], corrected_segments: List[dict]
+        self, sentences_texts: List[str], corrected_segments: List[Segment]
     ) -> Tuple[List[str], List[str]]:
         """
         Class method to process sentence-segment matching from raw input.
         Converts corrected_segments into Segment objects and processes them.
         """
-        # Create an instance of SentenceMatcher
-        matcher = cls(corrected_segments, sentences_texts)
 
         # Perform matching
-        return matcher.match_sentences()
+        return self.match_sentences()
 
     def find_best_segment_match(
         self, min_tolerance=0.3
@@ -92,11 +89,9 @@ class SentenceMatcher:
         while len(processed_sentences) == 0:
             print(f"Tolerance: {tolerance}")
             # Validate segments within the current tolerance
-            processor = SegmentValidator(tolerance)
-            valid_segments = processor.get_valid_segments(self.segments)
+            valid_segments = SegmentValidator(tolerance).get_valid_segments(self.segments)
             if valid_segments:
-                segments_sentences_matcher = SegmentsSentencesMatcher(valid_segments, self.sentences)
-                processed_sentences, remaining_sentences = segments_sentences_matcher.match_sentences()
+                processed_sentences, remaining_sentences = self.match_sentences(valid_segments)
                 if processed_sentences:
                     break
             else:
