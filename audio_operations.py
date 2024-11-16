@@ -1,6 +1,7 @@
 import subprocess
 import json
 import os
+from sentence_matcher import SentenceMatcher
 from os.path import basename, dirname
 # import stable_whisper
 # from time import sleep
@@ -66,7 +67,9 @@ def get_segments_from_audio_file(audio_file, tokens_texts, output_file='output.j
             "--output_dir", dirname(output_file)
         ]
         print(args)
-        SSL_CERT_FILE = os.environ.get('SSL_CERT_FILE')
+        SSL_CERT_FILE = "" + os.environ.get('VIRTUAL_ENV') + '/lib/python3.11/site-packages/certifi/cacert.pem'
+        if not os.path.exists(SSL_CERT_FILE):
+            SSL_CERT_FILE = os.environ.get('SSL_CERT_FILE')
         process = subprocess.Popen(
             args, 
             stdout=subprocess.PIPE, 
@@ -126,7 +129,8 @@ def get_segments_from_segments_file(audio_file, tokens_texts, output_file='outpu
             "probability": word['probability'],
         } for word in segment['words']]
     } for segment in segments]
-    segments_to_add, segments_end, remaining_tokens, matched_sentences = find_best_segment_match(map_segments, tokens_texts, 0.2)
+    matcher = SentenceMatcher(segments, tokens_texts)
+    segments_to_add, segments_end, remaining_tokens, matched_sentences = matcher.find_best_segment_match(0.2)
     start = segments_end
     
     # Step 5: If there are no remaining tokens, return the initial matched segments
@@ -182,10 +186,10 @@ def recursive_get_segments_from_audio_file(audio_file, tokens_texts):
     remaining_segments = recursive_get_segments_from_audio_file(trimmed_audio_file, remaining_tokens)
     # Step 9: Adjust the start and end times for the remaining segments and combine results
     aligned_segments = [{
-        'start': round(segment['start'] + start, 2),
-        'end': round(segment['end'] + start, 2),
-        'words': get_words(segment['words'], start),
-        'text': segment['text']
+        'start': round(segment.start + start, 2),
+        'end': round(segment.end + start, 2),
+        'words': get_words(segment.words, start),
+        'text': segment.text
     } for segment in remaining_segments]
 
     # Assuming corrected_segments is defined or meant to be the initially aligned segments

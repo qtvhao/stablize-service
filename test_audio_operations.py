@@ -48,7 +48,7 @@ def test_get_segments_from_segments_file(tokens_json, audio_file, output_file, s
     trimmed_audio_file, remaining_tokens, start, segments = get_segments_from_segments_file(audio_file, tokens_texts, output_file)
     print(f"Trimmed audio file: {trimmed_audio_file}")
     # 
-    segments_joined = " ".join([segment['text'].strip() for segment in segments])
+    segments_joined = " ".join([segment.text.strip() for segment in segments])
     print(f"Expect segments to end with: {segmentsTextToCompare}")
     assert segments_joined.endswith(segmentsTextToCompare), "Segments don't end with {segmentsTextToCompare}"
     # 
@@ -78,7 +78,7 @@ def test_recursive_get_segments_from_audio_file(tokens_json, audio_file):
     for segment in segments:
         assert segment['start'] != segment['end'], f"Segment {segment} don't have time"
     tokens_joined = " ".join(tokens_texts)
-    segments_joined = " ".join([segment['text'] for segment in segments])
+    segments_joined = " ".join([segment.text for segment in segments])
     print(f"Tokens: {tokens_joined}")
     print(f"Segments: {segments_joined}")
     similarity_ratio = calculate_similarity_ratio(tokens_joined, segments_joined)
@@ -86,5 +86,5 @@ def test_recursive_get_segments_from_audio_file(tokens_json, audio_file):
     assert similarity_ratio >= 0.8, "Similarity ratio is too low"
     for segment in segments:
         assert segment['start'] != segment['end'], f"Segment {segment} don't have time"
-        print(f"Segment {segment['start']} - {segment['end']}: {segment['text']}")
+        print(f"Segment {segment['start']} - {segment['end']}: {segment.text}")
 
