@@ -10,6 +10,10 @@ from alignutils import find_best_segment_match
 # model = stable_whisper.load_model(name="tiny", in_memory=True)
 
 from random import randint
+ffmpeg_executable = "/usr/bin/ffmpeg"
+if not os.path.exists(ffmpeg_executable):
+    raise ValueError("ffmpeg not found")
+
 def seconds_to_ffmpeg_time(seconds):
     hours = int(seconds // 3600)
     minutes = int((seconds % 3600) // 60)
@@ -21,17 +25,17 @@ def cut_audio_file(audio_file, start=None, end=None):
     end_str = str(end).replace('.', '_') if end is not None else 'end'
     output_file = audio_file.replace('_end', '').replace('.mp3', f'___{start_str}_{end_str}.mp3')
     if start is None:
-        process = subprocess.run(["ffmpeg", "-y", "-i", audio_file, "-to", seconds_to_ffmpeg_time(end), "-c", "copy", output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        process = subprocess.run([ffmpeg_executable, "-y", "-i", audio_file, "-to", seconds_to_ffmpeg_time(end), "-c", "copy", output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     elif end is None:
-        process = subprocess.run(["ffmpeg", "-y", "-i", audio_file, "-ss", seconds_to_ffmpeg_time(start), "-c", "copy", output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        process = subprocess.run([ffmpeg_executable, "-y", "-i", audio_file, "-ss", seconds_to_ffmpeg_time(start), "-c", "copy", output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     else:
-        process = subprocess.run(["ffmpeg", "-y", "-i", audio_file, "-ss", seconds_to_ffmpeg_time(start), "-to", seconds_to_ffmpeg_time(end), "-c", "copy", output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        process = subprocess.run([ffmpeg_executable, "-y", "-i", audio_file, "-ss", seconds_to_ffmpeg_time(start), "-to", seconds_to_ffmpeg_time(end), "-c", "copy", output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
     # Print stdout and stderr
     print("=== ffmpeg stdout ===")
-    # print(process.stdout)
+    print(process.stdout)
     print("=== ffmpeg stderr ===")
-    # print(process.stderr)
+    print(process.stderr)
 
     process.check_returncode()  # Ensure the subprocess completed successfully
     return output_file
@@ -164,7 +168,7 @@ def get_segments_from_segments_file(audio_file, tokens_texts, output_file='outpu
 def convert_audio_file(audio_file):
     output_file = audio_file.replace('.aac', '.mp3')
     output_file = "/tmp/" + basename(output_file)
-    process = subprocess.run(["ffmpeg", "-y", "-i", audio_file, "-acodec", "libmp3lame", output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    process = subprocess.run([ffmpeg_executable, "-y", "-i", audio_file, "-acodec", "libmp3lame", output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     process.check_returncode()  # Ensure the subprocess completed successfully
     return output_file
 
