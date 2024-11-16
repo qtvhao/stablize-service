@@ -169,6 +169,7 @@ def get_segments_from_segments_file(audio_file, tokens_texts, output_file='outpu
     } for segment in segments]
     matcher = SentenceMatcher(segments, tokens_texts)
     segments_to_add, segments_end, remaining_tokens, matched_sentences = matcher.find_best_segment_match(0.2)
+    print(f"Remaining tokens: {len(remaining_tokens)}")
     start = segments_end
     
     # Step 5: If there are no remaining tokens, return the initial matched segments
@@ -181,8 +182,9 @@ def get_segments_from_segments_file(audio_file, tokens_texts, output_file='outpu
         return trimmed_audio_file, remaining_tokens, start, segments_to_add
     
     # Step 6: Determine starting point for the next segment and process remaining tokens
-    # remaining_tokens_joined = "\n\n".join(remaining_tokens)
-    matched_sentences_joined = "\n\n".join(matched_sentences)
+    remaining_tokens_joined = "\n\n".join(remaining_tokens)
+    print(f"Remaining tokens: {remaining_tokens_joined}")
+    # matched_sentences_joined = "\n\n".join(matched_sentences)
 
     # Step 7: Cut the audio file from the best match endpoint and save remaining tokens
     # none_start = cut_audio_file(audio_file, None, start)
