@@ -12,7 +12,8 @@ from alignutils import find_best_segment_match
 from random import randint
 ffmpeg_executable = "/usr/bin/ffmpeg"
 if not os.path.exists(ffmpeg_executable):
-    raise ValueError("ffmpeg not found")
+    ffmpeg_executable = "ffmpeg"
+    # raise ValueError("ffmpeg not found")
 
 def seconds_to_ffmpeg_time(seconds):
     hours = int(seconds // 3600)
@@ -42,82 +43,80 @@ def cut_audio_file(audio_file, start=None, end=None):
     return output_file
 
 def get_segments_from_audio_file(audio_file, tokens_texts, output_file='output.json'):
-    # Step 1: Align the tokens with the audio file
     tokens_texts_joined = "\n\n".join(tokens_texts)
-    print(f"Aligning {audio_file} with {tokens_texts_joined}")
-    # is_pytest = os.environ.get('PYTEST_CURRENT_TEST')
-    if True:
-        # stable-ts audio.mp3 --align text.txt --language en
-        tmp_file = '/tmp/align-input-' + str(randint(0, 1000000)) + '.txt'
-        open(tmp_file, 'w').write(tokens_texts_joined)
-        if not os.path.exists(tmp_file):
-            raise ValueError("tmp_file not found")
-        stable_exec = "/usr/local/bin/stable-ts"
-        if not os.path.exists(stable_exec):
-            stable_exec = "/root/.local/share/pypoetry/venv/bin/stable-ts"
-        if not os.path.exists(stable_exec):
-            stable_exec = "/Library/Frameworks/Python.framework/Versions/3.11/bin/stable-ts"
-        if not os.path.exists(stable_exec):
-            raise ValueError("stable-ts not found")
-        # Open the process with Popen
-        args = [
-            stable_exec,
-            audio_file,
-            "-y",
-            "--device", "cpu",
-            "--align", tmp_file,
-            "--language", "vi",
-            "--output_format", "json",
-            "--model", "tiny",
-            "--output", basename(output_file),
-            "--output_dir", dirname(output_file)
-        ]
-        print(args)
-        SSL_CERT_FILE = None
-        if os.environ.get('VIRTUAL_ENV'):
-            SSL_CERT_FILE = "" + os.environ.get('VIRTUAL_ENV') + '/lib/python3.11/site-packages/certifi/cacert.pem'
-        if os.environ.get('SSL_CERT_FILE') and not SSL_CERT_FILE:
-            SSL_CERT_FILE = os.environ.get('SSL_CERT_FILE')
-        env = {
-            'PATH': "/opt/homebrew/bin:/usr/bin",
-        }
-        if SSL_CERT_FILE:
-            env['SSL_CERT_FILE'] = SSL_CERT_FILE
-        process = subprocess.Popen(
-            args, 
-            stdout=subprocess.PIPE, 
-            stderr=subprocess.PIPE, 
-            text=True, 
-            env=env,
-        )
-
-        # Print outputs in real-time
-        print("=== Output ===")
-
-        for line in process.stderr:
-            print(line, end='')
-        for line in process.stdout:
-            print(line, end='')  # `end=''` to avoid double newlines
-
-        process.stdout.close()
-        process.stderr.close()
-
-        # Wait for the process to complete
-        process.wait()
-        returncode = process.returncode
-        print(f"Return code: {returncode}")
-
-        if not os.path.exists(output_file):
-            print("Output file not found")
-            raise ValueError("Alignment failed")
-        print("=== Output === ")
-        if 1 == process.returncode:
-            raise ValueError("Alignment failed")
-    # else:
-    #     alignment_result = model.align(audio_file, tokens_texts_joined, language="vi")
-    #     alignment_result.save_as_json(output_file)
-        
+    tmp_file = prepare_tmp_file(tokens_texts_joined)
+    stable_exec = find_stable_ts_executable()
+    run_stable_ts(audio_file, tmp_file, output_file, stable_exec)
+    check_output_file(output_file)
     return get_segments_from_segments_file(audio_file, tokens_texts, output_file)
+
+def prepare_tmp_file(tokens_texts_joined):
+    tmp_file = '/tmp/align-input-' + str(randint(0, 1000000)) + '.txt'
+    with open(tmp_file, 'w') as f:
+        f.write(tokens_texts_joined)
+    if not os.path.exists(tmp_file):
+        raise ValueError("Temporary file creation failed.")
+    return tmp_file
+
+def find_stable_ts_executable():
+    paths = [
+        "/usr/local/bin/stable-ts",
+        "/root/.local/share/pypoetry/venv/bin/stable-ts",
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/stable-ts",
+    ]
+    for path in paths:
+        if os.path.exists(path):
+            return path
+    raise ValueError("stable-ts executable not found.")
+
+def run_stable_ts(audio_file, tmp_file, output_file, stable_exec):
+    args = [
+        stable_exec,
+        audio_file,
+        "-y",
+        "--device", "cpu",
+        "--align", tmp_file,
+        "--language", "vi",
+        "--output_format", "json",
+        "--model", "tiny",
+        "--output", basename(output_file),
+        "--output_dir", dirname(output_file)
+    ]
+    print(f"Running command: {args}")
+    env = prepare_environment()
+    process = subprocess.Popen(
+        args,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+        env=env,
+    )
+    print("=== Command Output ===")
+    for line in process.stderr:
+        print(line, end='')
+    for line in process.stdout:
+        print(line, end='')
+
+    process.stdout.close()
+    process.stderr.close()
+    process.wait()
+    if process.returncode != 0:
+        raise ValueError("stable-ts command failed with return code: " + str(process.returncode))
+
+def prepare_environment():
+    env = {
+        'PATH': "/opt/homebrew/bin:/usr/bin",
+    }
+    if os.environ.get('VIRTUAL_ENV'):
+        ssl_cert_file = os.path.join(os.environ.get('VIRTUAL_ENV'), 'lib/python3.11/site-packages/certifi/cacert.pem')
+        env['SSL_CERT_FILE'] = ssl_cert_file
+    elif os.environ.get('SSL_CERT_FILE'):
+        env['SSL_CERT_FILE'] = os.environ.get('SSL_CERT_FILE')
+    return env
+
+def check_output_file(output_file):
+    if not os.path.exists(output_file):
+        raise ValueError("Alignment failed, output file not found.")
 
 def get_segments_from_segments_file(audio_file, tokens_texts, output_file='output.json'):
     # Step 2: Load the alignment results
