@@ -226,9 +226,9 @@ import pytest
         tokens_1,
         0.2,
         {
-            "matched_segments": 6,
-            "matched_segment_end": 10,
-            "remaining_sentences": 3,
+            "matched_segments": 4,
+            "matched_segment_end": 20.22,
+            "remaining_sentences": 1,
             "processed_sentences": 2
         }
     )

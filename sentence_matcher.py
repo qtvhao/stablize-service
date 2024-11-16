@@ -1,6 +1,7 @@
 from typing import List, Tuple
 from segment_validator import SegmentValidator
 from segment import Segment
+from segments_sentences_matcher import SegmentsSentencesMatcher
 
 class SentenceMatcher:
     """
@@ -93,11 +94,13 @@ class SentenceMatcher:
             # Validate segments within the current tolerance
             processor = SegmentValidator(tolerance)
             valid_segments = processor.get_valid_segments(self.segments)
-
-            processed_sentences, remaining_sentences = self.match_sentences()
-
-            if processed_sentences:
-                break
+            if valid_segments:
+                segments_sentences_matcher = SegmentsSentencesMatcher(valid_segments, self.sentences)
+                processed_sentences, remaining_sentences = segments_sentences_matcher.match_sentences()
+                if processed_sentences:
+                    break
+            else:
+                print("No valid segments found")
 
             tolerance *= 0.8  # Reduce tolerance
             tolerance = round(tolerance, 2)  # Avoid floating-point imprecision
