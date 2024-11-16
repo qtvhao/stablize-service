@@ -185,12 +185,18 @@ def recursive_get_segments_from_audio_file(audio_file, tokens_texts):
     # Step 8: Recursively process remaining audio and tokens
     remaining_segments = recursive_get_segments_from_audio_file(trimmed_audio_file, remaining_tokens)
     # Step 9: Adjust the start and end times for the remaining segments and combine results
-    aligned_segments = [{
-        'start': round(segment.start + start, 2),
-        'end': round(segment.end + start, 2),
-        'words': get_words(segment.words, start),
-        'text': segment.text
-    } for segment in remaining_segments]
+    aligned_segments = [Segment(
+        start=round(segment.start + start, 2),
+        end=round(segment.end + start, 2),
+        words=get_words(segment.words, start),
+        text=segment.text,
+    ) for segment in remaining_segments]
+    # aligned_segments = [{
+    #     'start': round(segment.start + start, 2),
+    #     'end': round(segment.end + start, 2),
+    #     'words': get_words(segment.words, start),
+    #     'text': segment.text
+    # } for segment in remaining_segments]
 
     # Assuming corrected_segments is defined or meant to be the initially aligned segments
     return segments + aligned_segments
