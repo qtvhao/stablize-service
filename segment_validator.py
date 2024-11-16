@@ -1,5 +1,6 @@
 import json
 from segment import Segment
+from typing import List
 
 class SegmentValidator:
     def __init__(self, tolerance):
@@ -11,7 +12,7 @@ class SegmentValidator:
         """
         self.tolerance = tolerance
 
-    def get_valid_segments(self, segments):
+    def get_valid_segments(self, segments: List[Segment]):
         """
         Processes segments and returns a list of valid segments.
 

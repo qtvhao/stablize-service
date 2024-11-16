@@ -1,5 +1,6 @@
 import pytest
 from segment_validator import SegmentValidator
+from segment import Segment
 
 @pytest.mark.parametrize(
     "words, expected_avg",
@@ -44,7 +45,7 @@ def test_calculate_avg_probability(words, expected_avg):
 )
 def test_process_segment(segment, tolerance, expected_result):
     processor = SegmentValidator(tolerance)
-    result = processor.process_segment(segment)
+    result = processor.process_segment(Segment(segment["text"], segment["end"], segment["start"], segment["words"], []))
     assert result == expected_result, f"Expected {expected_result}, but got {result}"
 
 
@@ -159,8 +160,9 @@ def test_get_valid_segments(segments_test_suite, tolerance, expected_valid_segme
     segments = segments[start:]
     the_first_segment = segments[0]
     print(f"The first segment: {the_first_segment['text']}")
-    valid_segments = processor.get_valid_segments(segments)
+    valid_segments = processor.get_valid_segments([Segment(segment["text"], segment["end"], segment["start"], segment["words"], []) for segment in segments])
     valid_segments_count = len(valid_segments)
     assert valid_segments_count == expected_valid_segments, f"Expected {expected_valid_segments} valid segments, but got {valid_segments_count}"
     if valid_segments:
-        assert valid_segments[-1]["text"].strip() == expected_last_segment_text.strip(), f"Expected last segment text to be '{expected_last_segment_text}', but got '{valid_segments[-1]['text']}'"
+        assert valid_segments[-1].text.strip() == expected_last_segment_text.strip(), f"Expected last segment text to be '{expected_last_segment_text}', but got '{valid_segments[-1]['text']}'"
+#
