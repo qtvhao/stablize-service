@@ -10,6 +10,7 @@ python = "^3.11"
 gunicorn = "23.0.0"
 flask = "3.0.3"
 flask-cors = "5.0.0"
+certifi = "^2024.8.30"
 
 [tool.poetry.group.dev.dependencies]
 pytest-watch = "^4.2.0"
