@@ -7,7 +7,11 @@ segments = processor.load_segments("./tests/synthesize-result-2532432836-segment
 the_first_segment = segments[0]
 print(f"The first segment: {the_first_segment['text']}")
 valid_segments = segments
-valid_segments = [{"text": segment["text"]} for segment in valid_segments]
+valid_segments = [{
+    "text": segment["text"],
+    "start": segment["start"],
+    "end": segment["end"]
+} for segment in valid_segments]
 # 
 tokens_1 = [
     "CompTIA (Computing Technology Industry Association) là một tổ chức phi lợi nhuận hàng đầu trong lĩnh vực chứng chỉ và tiêu chuẩn công nghệ thông tin (CNTT) trên toàn cầu. Thành lập vào năm 1982, CompTIA chuyên cung cấp các chứng chỉ CNTT nhằm trang bị kiến thức nền tảng và kỹ năng thực tế cho những người làm việc trong ngành công nghệ, đặc biệt trong các lĩnh vực quản trị hệ thống, an ninh mạng, hỗ trợ kỹ thuật, và mạng máy tính.",
@@ -40,21 +44,21 @@ tokens_1 = [
     [
         (
             # Trường hợp 1: Câu đầu tiên khớp với đoạn đầu tiên
-            [{"text": "Lorem ipsum dolor sit amet"}],
+            [{"text": "Lorem ipsum dolor sit amet", "end": 5, "start": 0}],
             ["Lorem ipsum dolor sit amet _", "Extra sentence here"],
             1 # trả về 1 câu khớp
         ),
         (
             # Trường hợp 2: Không có câu nào khớp
-            [{"text": "Non-matching segment"}],
+            [{"text": "Non-matching segment", "end": 5, "start": 0}],
             ["Lorem ipsum dolor sit amet", "Extra sentence here"],
             0 # không có câu nào khớp
         ),
         (
             # Trường hợp 3: Nhiều câu khớp với nhiều đoạn
             [
-                {"text": "Lorem ipsum dolor sit amet"},
-                {"text": "consectetur adipiscing elit"},
+                {"text": "Lorem ipsum dolor sit amet", "end": 5, "start": 0},
+                {"text": "consectetur adipiscing elit", "end": 10, "start": 6},
             ],
             ["Lorem ipsum dolor sit amet", "consectetur adipiscing elit", "Extra sentence here"],
             2 # trả về 2 câu khớp
@@ -62,8 +66,8 @@ tokens_1 = [
         (
             # Trường hợp 3: Nhiều câu khớp với nhiều đoạn, vì similiarity > 0.8
             [
-                {"text": "Lorem ipsum dolor, sit amet,"},
-                {"text": "consectetur adipiscing, elit"},
+                {"text": "Lorem ipsum dolor, sit amet,", "end": 5, "start": 0},
+                {"text": "consectetur adipiscing, elit", "end": 10, "start": 6},
             ],
             ["Lorem ipsum, dolor sit amet.", " Consectetur, adipiscing elit", "Extra sentence here"],
             2 # trả về 2 câu khớp
@@ -76,7 +80,22 @@ tokens_1 = [
             # 4.	Xử lý:
             # •	Các đoạn hợp nhất thành một câu khớp ("Lorem ipsum dolor sit amet").
             # •	Câu còn lại không khớp ("Extra sentence here") được trả về trong phần còn lại (remaining).
-            [{"text": "Lorem ipsum"}, {"text": "dolor sit amet"}, {"text": "Extra"}],
+            [
+                {
+                    "text": "Lorem ipsum",
+                    "start": 0,
+                    "end": 5
+                }, 
+                {
+                    "text": "dolor sit amet",
+                    "start": 6,
+                    "end": 10
+                }, {
+                    "text": "Extra",
+                    "start": 11,
+                    "end": 15
+                }
+            ],
             ["Lorem ipsum dolor sit amet", "Extra sentence here"],
             1 # trả về 1 câu khớp
         ),
@@ -88,6 +107,8 @@ tokens_1 = [
             # • Tất cả các câu được trả về trong phần còn lại (remaining).
             [
                 {
+                    "end": 5,
+                    "start": 0,
                     "text": "Lorem ipsum"
                 }
             ],
@@ -138,3 +159,79 @@ def test_split_sentences_by_highest_similarity_to_segments(
     print(f"Processed: {processed}")
     print(f"Expected: {expected_processed}")
     assert len(processed) == expected_processed
+
+import pytest
+
+@pytest.mark.parametrize("segments, sentences_texts, min_tolerance, expected", [
+    # Trường hợp 1: Có một số đoạn khớp với các câu
+    (
+        [
+            {"text": "Đây là câu đầu tiên.", "end": 5, "start": 0, "words": [{"word": "Đây", "probability": 1.0}, {"word": "là", "probability": 1.0}, {"word": "câu", "probability": 1.0}, {"word": "đầu", "probability": 1.0}, {"word": "tiên.", "probability": 1.0}]},
+            {"text": "Câu thứ hai có độ dài vừa đủ.", "end": 10, "start": 6, "words": [{"word": "Câu", "probability": 1.0}, {"word": "thứ", "probability": 1.0}, {"word": "hai", "probability": 1.0}, {"word": "có", "probability": 1.0}, {"word": "độ", "probability": 1.0}, {"word": "dài", "probability": 1.0}, {"word": "vừa", "probability": 1.0}, {"word": "đủ.", "probability": 1.0}]},
+            {"text": "Câu thứ ba là câu cuối.", "end": 15, "start": 11, "words": [{"word": "Câu", "probability": 1.0}, {"word": "thứ", "probability": 1.0}, {"word": "ba", "probability": 1.0}, {"word": "là", "probability": 1.0}, {"word": "câu", "probability": 1.0}, {"word": "cuối.", "probability": 1.0}]}
+        ],
+        [
+            "Đây là câu đầu tiên.",
+            "Câu thứ hai có độ dài vừa đủ.",
+            "Câu này không khớp với bất kỳ đoạn nào."
+        ],
+        0.3,  # Ngưỡng tối thiểu
+        {
+            "matched_segments": 2,
+            "matched_segment_end": 10,
+            "remaining_sentences": 1,
+            "processed_sentences": 2
+        }
+    ),
+    # Trường hợp 2: Không có câu nào khớp
+    (
+        [
+            {"text": "Đây là một đoạn âm thanh khác.", "end": 3, "start": 0, "words": [{"word": "Đây", "probability": 1.0}, {"word": "là", "probability": 1.0}, {"word": "một", "probability": 1.0}, {"word": "đoạn", "probability": 1.0}, {"word": "âm", "probability": 1.0}, {"word": "thanh", "probability": 1.0}, {"word": "khác.", "probability": 1.0}]},
+            {"text": "Nội dung không khớp.", "end": 6, "start": 4, "words": [{"word": "Nội", "probability": 1.0}, {"word": "dung", "probability": 1.0}, {"word": "không", "probability": 1.0}, {"word": "khớp.", "probability": 1.0}]},
+        ],
+        [
+            "Câu này không khớp với bất kỳ đoạn nào.",
+            "Một câu khác không khớp."
+        ],
+        0.3,
+        {
+            "matched_segments": 0,
+            "matched_segment_end": None,
+            "remaining_sentences": 2,
+            "processed_sentences": 0
+        }
+    ),
+    # Trường hợp 3: Tất cả các câu đều khớp
+    (
+        [
+            {"text": "Câu đầu tiên.", "end": 2},
+            {"text": "Câu tiếp theo.", "end": 4},
+            {"text": "Câu cuối.", "end": 6}
+        ],
+        [
+            "Câu đầu tiên.",
+            "Câu tiếp theo.",
+            "Câu cuối."
+        ],
+        0.3,
+        {
+            "matched_segments": 3,
+            "matched_segment_end": 6,
+            "remaining_sentences": 0,
+            "processed_sentences": 3
+        }
+    )
+])
+def test_find_best_segment_match(segments, sentences_texts, min_tolerance, expected):
+    # Create an instance of SentenceMatcher
+    matcher = SentenceMatcher(segments, sentences_texts)
+    
+    # Call the method
+    matched_segments, matched_segment_end, remaining_sentences, processed_sentences = matcher.find_best_segment_match(min_tolerance)
+    
+    # Assertions
+    print("\n\nMatched segments count: ", len(matched_segments))
+    assert len(matched_segments) == expected["matched_segments"], "Matched segments không khớp với expected output."
+    assert matched_segment_end == expected["matched_segment_end"], "Matched segment end does not match the expected output."
+    assert len(remaining_sentences) == expected["remaining_sentences"], "Remaining sentences do not match the expected output."
+    assert len(processed_sentences) == expected["processed_sentences"], "Processed sentences do not match the expected output."

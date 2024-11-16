@@ -114,9 +114,6 @@ def get_segments_from_segments_file(audio_file, tokens_texts, output_file='outpu
     segments = human_written_segments.get('segments', [])
     with open(output_file.replace('.json', '.txt'), 'w') as file:
         file.write("\n\n".join([str(segment['start']) + ' - ' + str(segment['end']) + ': ' + segment['text'] for segment in segments]))
-    # remove output_file
-    # os.remove(output_file)
-
     # Step 3: Find the best match segment for the tokens
     map_segments = [{
         "start": segment['start'],
@@ -126,33 +123,17 @@ def get_segments_from_segments_file(audio_file, tokens_texts, output_file='outpu
             "word": word['word'],
             "start": word['start'],
             "end": word['end'],
-            "probability": round(word['probability'] * 1e8),
+            "probability": word['probability'],
         } for word in segment['words']]
     } for segment in segments]
     segments_to_add, segments_end, remaining_tokens, matched_sentences = find_best_segment_match(map_segments, tokens_texts, 0.2)
     start = segments_end
     
-    # Step 4: Print debug information
-    # print(f"Matched sentences: {matched_sentences}")
-    # print('===')
-    # print(f"Best match segment text: {segments_to_add}")
-    # print('===')
-    # raise ValueError("Stop")
-    # if None == segments_end:
-        # raise ValueError("segments_end is None")
-    # print(f"Best match segment end: {segments_end}")
-    # print(f"Best match: {best_match}")
-    # print('===')
-    # print(best_match_segment)
-    # print(f"Remaining tokens: {remaining_tokens}")
-
     # Step 5: If there are no remaining tokens, return the initial matched segments
     if None == start:
         trimmed_audio_file = ''
         if len(remaining_tokens) > 0:
             print("segments_to_add)")
-            print(map_segments)
-            print(tokens_texts)
             raise ValueError("remaining_tokens is not empty")
 
         return trimmed_audio_file, remaining_tokens, start, segments_to_add

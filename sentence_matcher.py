@@ -1,33 +1,25 @@
 from typing import List, Tuple
-from difflib import SequenceMatcher
 from segment_validator import SegmentValidator
-DEFAULT_WORD_LIMIT = 15
-
-class Segment:
-    def __init__(self, text: str, end: float):
-        self.text = text
-        self.end = end
-        self.last_15_words = " ".join(text.split()[-DEFAULT_WORD_LIMIT:])
-        self.last_15_words_count = len(self.last_15_words.split())
-
-    def similarity(self, sentence: str) -> float:
-        """
-        Calculates similarity between the segment and a sentence using SequenceMatcher.
-        """
-        sentence_last_5_words = " ".join(sentence.split()[(-self.last_15_words_count):])
-        return SequenceMatcher(
-            None,
-            self.last_15_words,
-            sentence_last_5_words
-        ).ratio()
-
+from segment import Segment
 
 class SentenceMatcher:
     """
     Matches sentences to segments based on highest similarity.
     """
-    def __init__(self, segments: List[Segment], sentences: List[str]):
-        self.segments = segments
+    def __init__(self, segments: List[dict], sentences: List[str]):
+        """
+        Initializes the SentenceMatcher with processed Segment objects and sentences.
+
+        Parameters:
+        - segments: List of dictionaries, each containing 'text' and 'end'.
+        - sentences: List of sentences to match.
+        """
+        self.segments = [Segment(
+            segment['text'], 
+            segment['end'],
+            segment['start'],
+            segment.get('words', []),
+        ) for segment in segments]
         self.sentences = sentences
 
     def match_sentences(self) -> Tuple[List[str], List[str]]:
@@ -73,11 +65,8 @@ class SentenceMatcher:
         Class method to process sentence-segment matching from raw input.
         Converts corrected_segments into Segment objects and processes them.
         """
-        # Convert corrected_segments to Segment objects
-        segments = [Segment(segment['text']) for segment in corrected_segments]
-
         # Create an instance of SentenceMatcher
-        matcher = cls(segments, sentences_texts)
+        matcher = cls(corrected_segments, sentences_texts)
 
         # Perform matching
         return matcher.match_sentences()
@@ -103,7 +92,6 @@ class SentenceMatcher:
             processor = SegmentValidator(tolerance)
             valid_segments = processor.get_valid_segments(self.segments)
 
-            # valid_segments = self.get_valid_segments(tolerance)
             processed_sentences, remaining_sentences = self.match_sentences()
 
             if processed_sentences:
@@ -119,16 +107,14 @@ class SentenceMatcher:
         highest_ratio = 0
         matched_segments = []
         matched_segment_end = None
-        
-        segments = [segment if isinstance(segment, Segment) else Segment(segment['text'], segment['end']) for segment in valid_segments]
 
-        for i, segment in enumerate(segments):
+        for i, segment in enumerate(valid_segments):
             for sentence in processed_sentences:
                 ratio = segment.similarity(sentence)
                 if ratio >= highest_ratio and ratio > 0.5:
                     highest_ratio = ratio
-                    matched_segments = segments[:i+1]
+                    matched_segments = valid_segments[:i + 1]
                     matched_segment_end = matched_segments[-1].end
 
-        
         return matched_segments, matched_segment_end, remaining_sentences, processed_sentences
+    
