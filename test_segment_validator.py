@@ -137,6 +137,19 @@ def test_get_valid_segments(segments, tolerance, expected_valid_segments):
             13, # number of valid segments
             "và bảo vệ hệ thống khỏi các mối đe dọa bảo mật." # Last segment text
         ),
+        (
+            # Invalid segment due to low probability. Special case, starts with CompTIA
+            ["./tests/synthesize-result-1456204682-segments.json", 0],
+            .4,
+            8, # number of valid segments
+            "Vân Nam giáp ranh với các quốc gia Đông Nam Á như Việt Nam," # Last segment text
+        ),
+        (
+            ["./tests/2.json", 0],
+            .4,
+            18, # number of valid segments
+            "Các chứng chỉ nổi bật của" # Last segment text
+        ),
     ]
 )
 def test_get_valid_segments(segments_test_suite, tolerance, expected_valid_segments, expected_last_segment_text):

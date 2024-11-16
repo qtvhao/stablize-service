@@ -88,7 +88,8 @@ class SentenceMatcher:
         processed_sentences = []
         remaining_sentences = self.sentences[:]
 
-        while tolerance >= min_tolerance:
+        while len(processed_sentences) == 0:
+            print(f"Tolerance: {tolerance}")
             # Validate segments within the current tolerance
             processor = SegmentValidator(tolerance)
             valid_segments = processor.get_valid_segments(self.segments)
@@ -101,9 +102,11 @@ class SentenceMatcher:
             tolerance *= 0.8  # Reduce tolerance
             tolerance = round(tolerance, 2)  # Avoid floating-point imprecision
 
-            if not valid_segments:
+            if tolerance < min_tolerance:
                 print("Tolerance is too low")
                 break
+            else:
+                print(f"Trying again with tolerance {tolerance}")
 
         highest_ratio = 0
         matched_segments = []

@@ -220,6 +220,17 @@ import pytest
             "remaining_sentences": 0,
             "processed_sentences": 3
         }
+    ),
+    (
+        segments,
+        tokens_1,
+        0.2,
+        {
+            "matched_segments": 6,
+            "matched_segment_end": 10,
+            "remaining_sentences": 3,
+            "processed_sentences": 2
+        }
     )
 ])
 def test_find_best_segment_match(segments, sentences_texts, min_tolerance, expected):

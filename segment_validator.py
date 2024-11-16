@@ -63,7 +63,7 @@ class SegmentValidator:
             return True
 
         if avg_probability <= self.tolerance: # avg_probability nhỏ hơn ngưỡng tolerance, nghĩa là segment này có khả năng là sai
-            self._log_segment_status(segment, "Invalid segment due to low probability")
+            self._log_segment_status(segment, f"Invalid segment due to low probability: {avg_probability} <= {self.tolerance}")
             return False
         else:
             self._log_segment_status(segment, "Average probability is within tolerance")
