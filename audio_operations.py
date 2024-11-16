@@ -68,18 +68,21 @@ def get_segments_from_audio_file(audio_file, tokens_texts, output_file='output.j
             "--output_dir", dirname(output_file)
         ]
         print(args)
-        SSL_CERT_FILE = "" + os.environ.get('VIRTUAL_ENV') + '/lib/python3.11/site-packages/certifi/cacert.pem'
-        if not os.path.exists(SSL_CERT_FILE):
+        if os.environ.get('VIRTUAL_ENV'):
+            SSL_CERT_FILE = "" + os.environ.get('VIRTUAL_ENV') + '/lib/python3.11/site-packages/certifi/cacert.pem'
+        if os.environ.get('SSL_CERT_FILE') and not SSL_CERT_FILE:
             SSL_CERT_FILE = os.environ.get('SSL_CERT_FILE')
+        env = {
+            'PATH': "/opt/homebrew/bin",
+        }
+        if SSL_CERT_FILE:
+            env['SSL_CERT_FILE'] = SSL_CERT_FILE
         process = subprocess.Popen(
             args, 
             stdout=subprocess.PIPE, 
             stderr=subprocess.PIPE, 
             text=True, 
-            env={
-                'SSL_CERT_FILE': SSL_CERT_FILE,
-                'PATH': "/opt/homebrew/bin",
-            },
+            env=env,
         )
 
         # Print outputs in real-time
