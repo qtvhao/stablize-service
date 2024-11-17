@@ -63,6 +63,9 @@ def create_app():
                 logger.log(f"Segments: {segments}")
                 return segments
             except Exception as e:
+                logger.log(f"Error:")
+                logger.log(f"Error: {str(e)}")
+                print(e)
                 return jsonify({"error": str(e)}), 500
 
     return app
