@@ -3,6 +3,7 @@ from flask_cors import CORS
 from threading import Lock
 from audio_operations import recursive_get_segments_from_audio_file
 from log import Log
+import json
 from segment import Segment
 
 # Initialize logger
@@ -22,15 +23,23 @@ def create_app():
             "text": segment.text,
             "start": segment.start,
             "end": segment.end,
-            "words": segment.words
+            "words": [
+                {
+                    "word": word.word,
+                    "start": word.start,
+                    "end": word.end,
+                } for word in segment.words
+            ]
         }
     def to_json(segments):
         """
         Converts Segment objects to JSON format.
         """
-        return [
+        segments = [
             to_dict(segment) for segment in segments
         ]
+        
+        return json.dumps(segments, ensure_ascii=False)
     
     @app.route('/')
     def index():
@@ -49,9 +58,9 @@ def create_app():
 
             try:
                 segments = recursive_get_segments_from_audio_file(audio_file, tokens_texts)
-                segments = to_json(segments)
                 logger.log(f"Segments: {len(segments)}")
-                return jsonify(segments), 200
+                segments = to_json(segments)
+                return segments
             except Exception as e:
                 return jsonify({"error": str(e)}), 500
 
