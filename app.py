@@ -2,7 +2,10 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from threading import Lock
 from audio_operations import recursive_get_segments_from_audio_file
+from log import Log
 
+# Initialize logger
+logger = Log("/tmp/server.log")
 # Lock to ensure only one request is processed at a time
 request_lock = Lock()
 
@@ -27,6 +30,7 @@ def create_app():
 
             try:
                 segments = recursive_get_segments_from_audio_file(audio_file, tokens_texts)
+                logger.log(f"Segments: {len(segments)}")
                 return jsonify(segments), 200
             except Exception as e:
                 return jsonify({"error": str(e)}), 500

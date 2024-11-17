@@ -193,7 +193,7 @@ def get_segments_from_segments_file(audio_file, tokens_texts, output_file='outpu
     } for segment in segments]
     matcher = SentenceMatcher(segments, tokens_texts)
     segments_to_add, segments_end, remaining_tokens, matched_sentences = matcher.find_best_segment_match(0.2)
-    logger.log(f"Remaining tokens: {len(remaining_tokens)}")
+    logger.log(f"Remaining tokens 1: {len(remaining_tokens)}")
     start = segments_end
     
     # Step 5: If there are no remaining tokens, return the initial matched segments
@@ -207,7 +207,7 @@ def get_segments_from_segments_file(audio_file, tokens_texts, output_file='outpu
     
     # Step 6: Determine starting point for the next segment and process remaining tokens
     remaining_tokens_joined = "\n\n".join(remaining_tokens)
-    logger.log(f"Remaining tokens: {remaining_tokens_joined}")
+    logger.log(f"Remaining tokens 2: {remaining_tokens_joined}")
     # matched_sentences_joined = "\n\n".join(matched_sentences)
 
     # Step 7: Cut the audio file from the best match endpoint and save remaining tokens
@@ -246,7 +246,7 @@ def recursive_get_segments_from_audio_file(audio_file, tokens_texts):
         return []
     output_file = audio_file.replace('.mp3', '.json')
     trimmed_audio_file, remaining_tokens, start, segments = get_segments_from_audio_file(audio_file, tokens_texts, output_file)
-    logger.log(f"Remaining tokens: {len(remaining_tokens)}")
+    logger.log(f"Remaining tokens 3: {len(remaining_tokens)}")
 
     # Step 8: Recursively process remaining audio and tokens
     if len(remaining_tokens) == 0:
@@ -254,6 +254,7 @@ def recursive_get_segments_from_audio_file(audio_file, tokens_texts):
     else:    
         remaining_segments = recursive_get_segments_from_audio_file(trimmed_audio_file, remaining_tokens)
     # Step 9: Adjust the start and end times for the remaining segments and combine results
+    logger.log(f"Remaining segments: {len(remaining_segments)}")
     aligned_segments = [Segment(
         start=round(segment.start + start, 2),
         end=round(segment.end + start, 2),
