@@ -25,9 +25,9 @@ def create_app():
             "end": segment.end,
             "words": [
                 {
-                    "word": word.word,
-                    "start": word.start,
-                    "end": word.end,
+                    "word": word['word'],
+                    "start": word['start'],
+                    "end": word['end'],
                 } for word in segment.words
             ]
         }
