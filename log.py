@@ -11,6 +11,7 @@ class Log:
         Logs a message to the console and the log file
         """
         print(message)
+        message = f"{message}"
         with open(self.log_file, "a") as f:
             f.write(message + "\n")
         with open(self.app_log_file, "a") as f:

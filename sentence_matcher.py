@@ -2,6 +2,9 @@ from typing import List, Tuple
 from segment_validator import SegmentValidator
 from segment import Segment
 from segments_sentences_matcher import SegmentsSentencesMatcher
+from log import Log
+
+logger = Log("/tmp/sentence_matcher.log")
 
 class SentenceMatcher:
     """
@@ -88,7 +91,7 @@ class SentenceMatcher:
         remaining_sentences = self.sentences[:]
 
         while len(processed_sentences) == 0:
-            print(f"Tolerance: {tolerance}")
+            logger.log(f"Tolerance: {tolerance}")
             # Validate segments within the current tolerance
             valid_segments = SegmentValidator(tolerance).get_valid_segments(self.segments)
             if valid_segments:
@@ -96,16 +99,16 @@ class SentenceMatcher:
                 if processed_sentences:
                     break
             else:
-                print("No valid segments found")
+                logger.log("No valid segments found")
 
             tolerance *= 0.8  # Reduce tolerance
             tolerance = round(tolerance, 2)  # Avoid floating-point imprecision
 
             if tolerance < min_tolerance:
-                print("Tolerance is too low")
+                logger.log("Tolerance is too low") #
                 break
             else:
-                print(f"Trying again with tolerance {tolerance}")
+                logger.log(f"Trying again with tolerance {tolerance}")
 
         highest_ratio = 0
         matched_segments = []

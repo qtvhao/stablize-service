@@ -7,9 +7,12 @@ from os.path import basename, dirname
 # import stable_whisper
 # from time import sleep
 from alignutils import find_best_segment_match
+from log import Log
 # model = stable_whisper.load_model(name="tiny", in_memory=True)
 
 from random import randint
+
+logger = Log("/tmp/audio_operations.log")
 ffmpeg_executable = "/usr/bin/ffmpeg"
 if not os.path.exists(ffmpeg_executable):
     ffmpeg_executable = "ffmpeg"
@@ -59,7 +62,7 @@ def cut_audio_file(audio_file, start=None, end=None):
     args, output_file = build_ffmpeg_command(audio_file, start=start, end=end)
 
     command = ' '.join(args) + ' 2>&1 | tee -a /tmp/ffmpeg.log'
-    print(f"Running command: {command}")
+    logger.log(f"Running command: {command}")
 
     try:
         # Run the ffmpeg command and capture output
@@ -68,28 +71,28 @@ def cut_audio_file(audio_file, start=None, end=None):
         stdout = result.stdout
         stderr = result.stderr
         # Print stdout and stderr for debugging
-        print("=== ffmpeg return code ===")
-        print(returncode)
-        print("=== ffmpeg stdout ===")
-        print(stdout)
-        print("=== ffmpeg stderr ===")
-        print(stderr)
-        print("=== End of ffmpeg output ===")
+        logger.log("=== ffmpeg return code ===")
+        logger.log(returncode)
+        logger.log("=== ffmpeg stdout ===")
+        logger.log(stdout)
+        logger.log("=== ffmpeg stderr ===")
+        logger.log(stderr)
+        logger.log("=== End of ffmpeg output ===")
 
     except subprocess.CalledProcessError as e:
         # Handle ffmpeg errors
-        print("Error during ffmpeg execution:")
-        print(f"Return code: {e.returncode}")
-        print(f"Output: {e.output}")
-        print(f"Error output: {e.stderr}")
+        logger.log("Error during ffmpeg execution:")
+        logger.log(f"Return code: {e.returncode}")
+        logger.log(f"Output: {e.output}")
+        logger.log(f"Error output: {e.stderr}")
         raise ValueError(f"ffmpeg command failed with return code: {e.returncode}")
 
     except Exception as e:
         # Handle unexpected errors
-        print(f"Unexpected error: {e}")
+        logger.log(f"Unexpected error: {e}")
         raise
 
-    print(f"Cut audio file from {start} to {end} successfully. Output: {output_file}")
+    logger.log(f"Cut audio file from {start} to {end} successfully. Output: {output_file}")
     return output_file
 
 def get_segments_from_audio_file(audio_file, tokens_texts, output_file='output.json'):
@@ -132,7 +135,7 @@ def run_stable_ts(audio_file, tmp_file, output_file, stable_exec):
         "--output", basename(output_file),
         "--output_dir", dirname(output_file)
     ]
-    print(f"Running command: {args}")
+    logger.log(f"Running command: {args}")
     env = prepare_environment()
     process = subprocess.Popen(
         args,
@@ -141,11 +144,11 @@ def run_stable_ts(audio_file, tmp_file, output_file, stable_exec):
         text=True,
         env=env,
     )
-    print("=== Command Output ===")
+    logger.log("=== Command Output ===")
     for line in process.stderr:
-        print(line, end='')
+        logger.log(line)
     for line in process.stdout:
-        print(line, end='')
+        logger.log(line)
 
     process.stdout.close()
     process.stderr.close()
@@ -190,31 +193,31 @@ def get_segments_from_segments_file(audio_file, tokens_texts, output_file='outpu
     } for segment in segments]
     matcher = SentenceMatcher(segments, tokens_texts)
     segments_to_add, segments_end, remaining_tokens, matched_sentences = matcher.find_best_segment_match(0.2)
-    print(f"Remaining tokens: {len(remaining_tokens)}")
+    logger.log(f"Remaining tokens: {len(remaining_tokens)}")
     start = segments_end
     
     # Step 5: If there are no remaining tokens, return the initial matched segments
     if None == start:
         trimmed_audio_file = ''
         if len(remaining_tokens) > 0:
-            print("segments_to_add)")
+            logger.log("segments_to_add)")
             raise ValueError("remaining_tokens is not empty")
 
         return trimmed_audio_file, remaining_tokens, start, segments_to_add
     
     # Step 6: Determine starting point for the next segment and process remaining tokens
     remaining_tokens_joined = "\n\n".join(remaining_tokens)
-    print(f"Remaining tokens: {remaining_tokens_joined}")
+    logger.log(f"Remaining tokens: {remaining_tokens_joined}")
     # matched_sentences_joined = "\n\n".join(matched_sentences)
 
     # Step 7: Cut the audio file from the best match endpoint and save remaining tokens
     # none_start = cut_audio_file(audio_file, None, start)
-    print(f"Cutting audio file from {start} to END")
+    logger.log(f"Cutting audio file from {start} to END")
     if len(remaining_tokens) > 0:
         trimmed_audio_file = cut_audio_file(audio_file, start, None)
     else:
         trimmed_audio_file = None
-    print(f"Trimmed audio file: {trimmed_audio_file}")
+    logger.log(f"Trimmed audio file: {trimmed_audio_file}")
 
     return trimmed_audio_file, remaining_tokens, start, segments_to_add
 
@@ -243,7 +246,7 @@ def recursive_get_segments_from_audio_file(audio_file, tokens_texts):
         return []
     output_file = audio_file.replace('.mp3', '.json')
     trimmed_audio_file, remaining_tokens, start, segments = get_segments_from_audio_file(audio_file, tokens_texts, output_file)
-    print(f"Remaining tokens: {len(remaining_tokens)}")
+    logger.log(f"Remaining tokens: {len(remaining_tokens)}")
 
     # Step 8: Recursively process remaining audio and tokens
     if len(remaining_tokens) == 0:
