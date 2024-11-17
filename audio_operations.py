@@ -58,24 +58,23 @@ def cut_audio_file(audio_file, start=None, end=None):
     # Build the FFmpeg command
     args, output_file = build_ffmpeg_command(audio_file, start=start, end=end)
 
-    print(f"Running command: {' '.join(args)}")
+    command = ' '.join(args) + ' 2>&1 | tee -a /tmp/ffmpeg.log'
+    print(f"Running command: {command}")
 
     try:
         # Run the ffmpeg command and capture output
-        process = subprocess.Popen(
-            args,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True
-        )
-        stdout, stderr = process.communicate()
+        result = subprocess.run(command, shell=True, text=True, capture_output=True)
+        returncode = result.returncode
+        stdout = result.stdout
+        stderr = result.stderr
         # Print stdout and stderr for debugging
+        print("=== ffmpeg return code ===")
+        print(returncode)
         print("=== ffmpeg stdout ===")
         print(stdout)
         print("=== ffmpeg stderr ===")
         print(stderr)
-        print("=== ffmpeg return code ===")
-        print(process.returncode)
+        print("=== End of ffmpeg output ===")
 
     except subprocess.CalledProcessError as e:
         # Handle ffmpeg errors
