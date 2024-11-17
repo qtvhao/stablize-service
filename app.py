@@ -60,6 +60,7 @@ def create_app():
                 segments = recursive_get_segments_from_audio_file(audio_file, tokens_texts)
                 logger.log(f"Segments: {len(segments)}")
                 segments = to_json(segments)
+                logger.log(f"Segments: {segments}")
                 return segments
             except Exception as e:
                 return jsonify({"error": str(e)}), 500
