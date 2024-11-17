@@ -189,7 +189,10 @@ def get_segments_from_segments_file(audio_file, tokens_texts, output_file='outpu
     # Step 7: Cut the audio file from the best match endpoint and save remaining tokens
     # none_start = cut_audio_file(audio_file, None, start)
     print(f"Cutting audio file from {start} to END")
-    trimmed_audio_file = cut_audio_file(audio_file, start, None)
+    if len(remaining_tokens) > 0:
+        trimmed_audio_file = cut_audio_file(audio_file, start, None)
+    else:
+        trimmed_audio_file = None
     print(f"Trimmed audio file: {trimmed_audio_file}")
 
     return trimmed_audio_file, remaining_tokens, start, segments_to_add
@@ -222,7 +225,10 @@ def recursive_get_segments_from_audio_file(audio_file, tokens_texts):
     print(f"Remaining tokens: {len(remaining_tokens)}")
 
     # Step 8: Recursively process remaining audio and tokens
-    remaining_segments = recursive_get_segments_from_audio_file(trimmed_audio_file, remaining_tokens)
+    if len(remaining_tokens) == 0:
+        remaining_segments = []
+    else:    
+        remaining_segments = recursive_get_segments_from_audio_file(trimmed_audio_file, remaining_tokens)
     # Step 9: Adjust the start and end times for the remaining segments and combine results
     aligned_segments = [Segment(
         start=round(segment.start + start, 2),
