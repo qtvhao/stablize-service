@@ -62,14 +62,18 @@ def cut_audio_file(audio_file, start=None, end=None):
 
     try:
         # Run the ffmpeg command and capture output
-        process = subprocess.run(
-            args, capture_output=True, text=True, check=True, timeout=20
+        process = subprocess.Popen(
+            args,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True
         )
+        stdout, stderr = process.communicate()
         # Print stdout and stderr for debugging
         print("=== ffmpeg stdout ===")
-        print(process.stdout)
+        print(stdout)
         print("=== ffmpeg stderr ===")
-        print(process.stderr)
+        print(stderr)
         print("=== ffmpeg return code ===")
         print(process.returncode)
 
