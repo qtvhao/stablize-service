@@ -1,9 +1,10 @@
 import json
 from segment import Segment
 from typing import List
+from log import Log
 
 log_file = "/tmp/segment_validator.log"
-app_log_file = "/tmp/app.log"
+logger = Log(log_file)
 
 class SegmentValidator:
     def __init__(self, tolerance):
@@ -35,12 +36,8 @@ class SegmentValidator:
             else:
                 break  # Stop at the first invalid segment
         log_line = f"Valid segments: {len(valid_segments)}"
-        print(log_line)
         # write to log file
-        with open(log_file, "a") as f:
-            f.write(log_line + "\n")
-        with open(app_log_file, "a") as f:
-            f.write(log_line + "\n")
+        logger.log(log_line)
 
         return valid_segments
 
@@ -118,12 +115,7 @@ class SegmentValidator:
             avg_probability (int): Average probability of the segment.
         """
         log_line = f"Segment: Avg Probability = {avg_probability}, Text = '{segment.text.strip()}'"
-        print(log_line)
-        # write to log file
-        with open(log_file, "a") as f:
-            f.write(log_line + "\n")
-        with open(app_log_file, "a") as f:
-            f.write(log_line + "\n")
+        logger.log(log_line)
 
     @staticmethod
     def _log_segment_status(segment, status):
@@ -136,12 +128,7 @@ class SegmentValidator:
             status (str): Status message.
         """
         log_line = f"Segment: {status}, Text: '{segment.text.strip()}'"
-        print(log_line)
-        # write to log file
-        with open(log_file, "a") as f:
-            f.write(log_line + "\n")
-        with open(app_log_file, "a") as f:
-            f.write(log_line + "\n")
+        logger.log(log_line)
 
     def load_segments(self, segments_json):
         """
