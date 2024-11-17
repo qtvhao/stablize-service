@@ -21,26 +21,42 @@ def seconds_to_ffmpeg_time(seconds):
     sec = seconds % 60
     return f"{hours:02}:{minutes:02}:{sec:06.3f}"
 
-def cut_audio_file(audio_file, start=None, end=None):
+def build_ffmpeg_command(audio_file, start=None, end=None, output_file=None):
     """
-    Cuts an audio file using ffmpeg.
+    Constructs an FFmpeg command to cut an audio file.
     :param audio_file: Path to the input audio file.
     :param start: Start time in seconds (float or int), or None to start from the beginning.
     :param end: End time in seconds (float or int), or None to end at the file's duration.
-    :return: Path to the output audio file.
+    :param output_file: Path for the output file. If None, generate a default name.
+    :return: List of FFmpeg command arguments.
     """
-    # Prepare the output file name
+    # Prepare output file name if not provided
     start_str = str(start).replace('.', '_') if start is not None else 'start'
     end_str = str(end).replace('.', '_') if end is not None else 'end'
-    output_file = audio_file.replace('_end', '').replace('.mp3', f'___{start_str}_{end_str}.mp3')
+    if output_file is None:
+        output_file = audio_file.replace('.mp3', f'___{start_str}_{end_str}.mp3')
 
-    # Build the ffmpeg command arguments
+    # Construct the FFmpeg arguments
     if start is None:
         args = [ffmpeg_executable, "-y", "-i", audio_file, "-to", seconds_to_ffmpeg_time(end), "-c", "copy", output_file]
     elif end is None:
         args = [ffmpeg_executable, "-y", "-i", audio_file, "-ss", seconds_to_ffmpeg_time(start), "-c", "copy", output_file]
     else:
         args = [ffmpeg_executable, "-y", "-i", audio_file, "-ss", seconds_to_ffmpeg_time(start), "-to", seconds_to_ffmpeg_time(end), "-c", "copy", output_file]
+
+    return args, output_file
+
+
+def cut_audio_file(audio_file, start=None, end=None):
+    """
+    Cuts an audio file using FFmpeg.
+    :param audio_file: Path to the input audio file.
+    :param start: Start time in seconds (float or int), or None to start from the beginning.
+    :param end: End time in seconds (float or int), or None to end at the file's duration.
+    :return: Path to the output audio file.
+    """
+    # Build the FFmpeg command
+    args, output_file = build_ffmpeg_command(audio_file, start=start, end=end)
 
     print(f"Running command: {' '.join(args)}")
 
